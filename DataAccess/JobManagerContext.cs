@@ -47,7 +47,7 @@ namespace DataAccess
             var conf = new ConfigurationBuilder()
                    .SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.json").Build();
-            // optionsBuilder.UseSqlServer(conf.GetConnectionString("DeDoc"));
+            // optionsBuilder.UseSqlServer(conf.GetConnectionString("SqlConnection"));
             optionsBuilder.UseSqlServer("server=localhost;database=job_manager;user=sa;password=12345678;TrustServerCertificate=true");
         }
 

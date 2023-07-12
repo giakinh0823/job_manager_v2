@@ -1,8 +1,9 @@
-using AutoMapper;
+﻿using AutoMapper;
 using BusinessObject;
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Quartz;
 using server.Config;
 using server.Middleware;
 using System.Text;
@@ -34,10 +35,45 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         });
 
 
+//  config quartz sql server store
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+    q.UseSimpleTypeLoader();
+
+    q.UsePersistentStore(x =>
+    {
+        x.UseProperties = true;
+        x.UseClustering();
+        // there are other SQL providers supported too 
+        x.UseSqlServer(sqlsever =>
+        {
+            sqlsever.ConnectionString = builder.Configuration.GetConnectionString("SqlConnection"); ;
+            sqlsever.TablePrefix = "QRTZ_";
+        });
+        // this requires Quartz.Serialization.Json NuGet package
+        x.UseJsonSerializer();
+    });
+
+    q.UseDefaultThreadPool(tp =>
+    {
+        // Số luồng tối đa
+        tp.MaxConcurrency = 10;
+    });
+});
+
+builder.Services.AddQuartzHostedService(options =>
+{
+    // when shutting down we want jobs to complete gracefully
+    options.WaitForJobsToComplete = true;
+});
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IRepository<UserRole>, UserRoleRepository>();
 builder.Services.AddScoped<IJobRepository, JobRepository>();
+builder.Services.AddScoped<ILogRepository, LogRepository>();
+
 
 var mapperConfig = new MapperConfiguration(mc =>
 {

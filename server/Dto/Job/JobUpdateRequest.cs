@@ -1,12 +1,12 @@
-﻿using BusinessObject;
-using server.Validate;
+﻿using server.Validate;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace server.Dto.Job
 {
-    public class JobCreateRequest
+    public class JobUpdateRequest
     {
+        [Required(ErrorMessage = "Id không được để trống")]
+        public int JobId { get; set; }
         [Required(ErrorMessage = "Tên không được để trống")]
         public string? Name { get; set; }
         public string? Description { get; set; }

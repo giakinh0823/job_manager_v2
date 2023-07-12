@@ -1,5 +1,4 @@
 ﻿using BusinessObject;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,47 +7,31 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    internal class RoleDAO
+    public class LogDAO
     {
-        public static List<Role> All()
+        public static List<Log> All()
         {
             try
             {
                 using (var db = new JobManagerContext())
                 {
-                    return db.Roles.ToList();
+                    return db.Logs.ToList();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error excute database: " + ex.Message);
-                return new List<Role>();
+                return new List<Log>();
             }
         }
 
-        public static Role? FindById(int roleId)
+        public static Log? FindById(int id)
         {
             try
             {
                 using (var db = new JobManagerContext())
                 {
-                    return db.Roles.FirstOrDefault(u => u.RoleId == roleId);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error excute database: " + ex.Message);
-                return null;
-            }
-        }
-
-        public static Role? FindByName(string? name)
-        {
-            try
-            {
-                using (var db = new JobManagerContext())
-                {
-                    return db.Roles.FirstOrDefault(u => name != null && u.Name.ToLower() == name.ToLower());
+                    return db.Logs.FirstOrDefault(u => u.LogId == id);
                 }
             }
             catch (Exception ex)
@@ -58,13 +41,14 @@ namespace DataAccess.DAO
             }
         }
 
-        public static void Add(Role role)
+
+        public static void Add(Log log)
         {
             try
             {
                 using (var db = new JobManagerContext())
                 {
-                    db.Roles.Add(role);
+                    db.Logs.Add(log);
                     db.SaveChanges();
                 }
             }
@@ -74,13 +58,13 @@ namespace DataAccess.DAO
             }
         }
 
-        public static void Update(Role role)
+        public static void Update(Log log)
         {
             try
             {
                 using (var db = new JobManagerContext())
                 {
-                    db.Roles.Update(role);
+                    db.Logs.Update(log);
                     db.SaveChanges();
                 }
             }
@@ -90,13 +74,13 @@ namespace DataAccess.DAO
             }
         }
 
-        public static void Delete(Role role)
+        public static void Delete(Log log)
         {
             try
             {
                 using (var db = new JobManagerContext())
                 {
-                    db.Roles.Remove(role);
+                    db.Logs.Remove(log);
                     db.SaveChanges();
                 }
             }
