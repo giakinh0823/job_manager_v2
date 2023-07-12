@@ -15,7 +15,10 @@ namespace DataAccess.DAO
             {
                 using (var db = new JobManagerContext())
                 {
-                    return db.Users.Include(b => b.UserRoles).ToList();
+                    return db.Users
+                        .Include(b => b.UserRoles)
+                        .ThenInclude(b => b.Role)
+                        .ToList();
                 }
             }
             catch (Exception ex)
