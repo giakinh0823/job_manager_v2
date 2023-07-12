@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DataAccess.Repository;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Crypto;
@@ -9,6 +10,7 @@ namespace server.Controllers.Admin
 {
     [ApiController]
     [Route("/api/admin/users")]
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = "ADMIN")]
     public class UsersController : Controller
     {
         private readonly IUserRepository userRepository;
@@ -21,7 +23,6 @@ namespace server.Controllers.Admin
         }
 
         [HttpGet]
-        [Authorize(AuthenticationSchemes = "Bearer", Roles = "ADMIN")]
         public IActionResult List()
         {
             return Ok(_mapper.Map<List<UserResponse>>(userRepository.All()));

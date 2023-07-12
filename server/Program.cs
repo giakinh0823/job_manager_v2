@@ -37,6 +37,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IRepository<UserRole>, UserRoleRepository>();
+builder.Services.AddScoped<IJobRepository, JobRepository>();
 
 var mapperConfig = new MapperConfiguration(mc =>
 {

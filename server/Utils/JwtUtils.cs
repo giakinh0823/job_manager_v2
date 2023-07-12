@@ -20,8 +20,8 @@ namespace server.Utils
         {
             var expiresTime = DateTime.Now.AddMinutes(15);
             List<string> roles = user.UserRoles != null ? user.UserRoles.ToList().Select(r => r.Role.Name).ToList() : new List<string?>();
-            string accessToken = GenerateToken(expiresTime, GetClaims(true, user.Name, user.Email, roles));
-            string refreshToken = GenerateToken(DateTime.Now.AddDays(30), GetClaims(false, user.Name, user.Email, null));
+            string accessToken = GenerateToken(expiresTime, GetClaims(true, user.UserId, user.Name, user.Email, roles));
+            string refreshToken = GenerateToken(DateTime.Now.AddDays(30), GetClaims(false, user.UserId, user.Name, user.Email, null));
 
             AccessTokenResponse accessTokenResponse = new AccessTokenResponse
             {
@@ -34,7 +34,7 @@ namespace server.Utils
             return accessTokenResponse;
         }
 
-        public static RefreshTokenResponse Refreshtoken(string? refreshToken)
+         public static RefreshTokenResponse Refreshtoken(string? refreshToken)
         {
             bool isRefreshTokenValid = ValidateToken(refreshToken, false);
 
@@ -52,7 +52,7 @@ namespace server.Utils
 
                 var expiresTime = DateTime.Now.AddMinutes(15);
                 List<string> roles = user.UserRoles != null ? user.UserRoles.ToList().Select(r => r.Role.Name).ToList() : new List<string?>();
-                string accessToken = GenerateToken(expiresTime, GetClaims(true, user.Name, user.Email, roles));
+                string accessToken = GenerateToken(expiresTime, GetClaims(true, user.UserId, user.Name, user.Email, roles));
 
                 RefreshTokenResponse refreshTokenResponse = new RefreshTokenResponse
                 {
@@ -67,7 +67,7 @@ namespace server.Utils
             throw new ApplicationException("Refresh token không hợp lệ");
         }
 
-        static string GenerateToken(DateTime expirationTime, IEnumerable<Claim> claims)
+        public static string GenerateToken(DateTime expirationTime, IEnumerable<Claim> claims)
         {
             var _config = getConfig();
             var secretKey = _config["Jwt:Key"];
@@ -86,7 +86,7 @@ namespace server.Utils
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        static bool ValidateToken(string token, bool validateLifetime)
+        public static bool ValidateToken(string token, bool validateLifetime)
         {
             var _config = getConfig();
             var secretKey = _config["Jwt:Key"];
@@ -114,12 +114,13 @@ namespace server.Utils
             }
         }
 
-        static IEnumerable<Claim> GetClaims(bool includeRoles, string name, string email, ICollection<String>? roles)
+        public static IEnumerable<Claim> GetClaims(bool includeRoles, int userId, string name, string email, ICollection<String>? roles)
         {
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, name),
-                new Claim(ClaimTypes.Email, email)
+                new Claim(ClaimTypes.Email, email),
+                new Claim(ClaimTypes.NameIdentifier, userId.ToString())
             };
 
             if (includeRoles && roles != null)
@@ -136,7 +137,7 @@ namespace server.Utils
             return claims;
         }
 
-        static JwtSecurityToken GetTokenClaims(string token)
+        public static JwtSecurityToken GetTokenClaims(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var jwtToken = tokenHandler.ReadJwtToken(token);
