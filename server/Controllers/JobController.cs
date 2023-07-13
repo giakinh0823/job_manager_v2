@@ -150,6 +150,7 @@ namespace server.Controllers
             await scheduler.DeleteJob(new JobKey(job.JobId.ToString(), payload.UserId.ToString()));
             List<Log> logs = _logRepository.FindByJobId(job.JobId);
             _logRepository.DeleteAll(logs);
+            _jobRepository.Delete(job);
 
             return await Task.FromResult<IActionResult>(Ok("Success"));
         }
