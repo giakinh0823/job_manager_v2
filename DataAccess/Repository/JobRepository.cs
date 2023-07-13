@@ -18,6 +18,8 @@ namespace DataAccess.Repository
 
         public Job? FindById(int id) => JobDAO.FindById(id);
 
+        public List<Job> FindByUserId(int? userId) => JobDAO.FindByUserId(userId);
+
         public void Update(Job entity) => JobDAO.Update(entity);
     }
 }

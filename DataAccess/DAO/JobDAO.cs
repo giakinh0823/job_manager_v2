@@ -43,6 +43,23 @@ namespace DataAccess.DAO
         }
 
 
+        public static List<Job> FindByUserId(int? userId)
+        {
+            try
+            {
+                using (var db = new JobManagerContext())
+                {
+                    return db.Jobs.Where(u => u.UserId == userId).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error excute database: " + ex.Message);
+                return new List<Job>();
+            }
+        }
+
+
         public static void Add(Job job)
         {
             try

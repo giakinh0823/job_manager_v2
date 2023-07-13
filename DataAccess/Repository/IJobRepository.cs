@@ -9,6 +9,6 @@ namespace DataAccess.Repository
 {
     public interface IJobRepository : IRepository<Job>
     {
-
+        List<Job> FindByUserId(int? userId);
     }
 }

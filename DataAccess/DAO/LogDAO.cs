@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,21 @@ namespace DataAccess.DAO
             }
         }
 
+        public static List<Log> FindByJobId(int? jobId)
+        {
+            try
+            {
+                using (var db = new JobManagerContext())
+                {
+                    return db.Logs.Where(l => l.JobId == jobId).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error excute database: " + ex.Message);
+                return new List<Log>();
+            }
+        }
 
         public static void Add(Log log)
         {
@@ -81,6 +97,25 @@ namespace DataAccess.DAO
                 using (var db = new JobManagerContext())
                 {
                     db.Logs.Remove(log);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error excute database: " + ex.Message);
+            }
+        }
+
+        public static void DeleteAll(List<Log> logs)
+        {
+            try
+            {
+                using (var db = new JobManagerContext())
+                {
+                    foreach (Log log in logs)
+                    {
+                        db.Logs.Remove(log);
+                    }
                     db.SaveChanges();
                 }
             }

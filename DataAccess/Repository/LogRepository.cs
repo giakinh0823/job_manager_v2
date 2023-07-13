@@ -18,5 +18,9 @@ namespace DataAccess.Repository
         public void Delete(Log entity) => LogDAO.Delete(entity);
 
         public void Update(Log entity) => LogDAO.Update(entity);
+
+        public List<Log> FindByJobId(int? jobId) => LogDAO.FindByJobId(jobId);
+
+        public void DeleteAll(List<Log> logs) => LogDAO.DeleteAll(logs);
     }
 }
