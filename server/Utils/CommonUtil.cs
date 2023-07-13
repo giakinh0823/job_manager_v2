@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using server.Models;
+﻿using server.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 

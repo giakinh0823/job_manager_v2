@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using DataAccess.Repository;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Org.BouncyCastle.Crypto;
 using server.Dto.User;
 
 namespace server.Controllers.Admin

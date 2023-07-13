@@ -1,16 +1,10 @@
 ﻿using BusinessObject;
 using DataAccess.Repository;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json.Linq;
-using Org.BouncyCastle.Crypto;
-using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Security;
 using server.Dto.Auth;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
-using static Org.BouncyCastle.Math.EC.ECCurve;
 
 namespace server.Utils
 {

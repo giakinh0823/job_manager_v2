@@ -8,11 +8,8 @@ using Quartz;
 using server.Constant;
 using server.CronJob;
 using server.Dto.Job;
-using server.Dto.User;
 using server.Models;
 using server.Utils;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace server.Controllers
 {
