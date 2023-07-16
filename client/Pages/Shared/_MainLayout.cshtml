@@ -1,0 +1,103 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] CronHub</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Home.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Image" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/prn_job_manager.styles.css" asp-append-version="true" />
+    <style>
+        .style_logo{
+            color: #fff !important;
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: 800;
+            margin-left: 11px;
+        }
+    </style>
+</head>
+<body>
+<main role="main" class="pb-3">
+        <div data-v-c0d0209c="" class="h-screen flex overflow-hidden bg-white">
+            <div data-v-9589e138="" data-v-c0d0209c="" class="hidden md:flex md:flex-shrink-0">
+                <div data-v-9589e138="" class="flex flex-col bg-gray-900 w-56">
+                    <div data-v-9589e138="" class="h-0 flex-1 flex flex-col overflow-y-auto">
+                        <nav data-v-9589e138="" class="flex-1 px-2 py-8 border-gray-200 border-r border-gray-300">
+                            <a data-v-9589e138="" exact="" class="group flex items-center px-2 pb-4 style_logo">
+                                <img style="width: 28px;" src="~/image/zyro-image.png" />ronhub
+                            </a>
+                            <a data-v-9589e138="" href="/Scheduler"
+                               class="mt-1 group flex items-center px-2 py-2 hover:bg-gray-700 text-md leading-5 font-medium hover:text-gray-100 text-gray-100 rounded-md focus:outline-none transition ease-in-out duration-150 router-link-exact-active router-link-active"
+                               aria-current="page">
+                                <svg data-v-9589e138="" fill="none" stroke-linecap="round"
+                                     stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"
+                                     class="mr-3 h-6 w-6 text-gray-100 transition ease-in-out duration-150">
+                                    <path data-v-9589e138="" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Schedulers
+                            </a>
+                        </nav>
+                    </div>
+                    <nav data-v-9589e138="" class="flex-initial px-2 py-8 border-gray-200 border-r border-gray-300">
+                        <a data-v-9589e138="" href="/settings"
+                           class="text-gray-400 hover:bg-gray-700 hover:text-gray-300 ml-2 mt-1 group flex items-center px-2 py-2 text-md leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150">
+                            <svg data-v-9589e138="" fill="currentColor" viewBox="0 0 20 20"
+                                 class="mr-3 h-5 w-5 text-gray-400 hover:text-gray-300 transition ease-in-out duration-150">
+                                <path data-v-9589e138=""
+                                      d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                                      clip-rule="evenodd" fill-rule="evenodd"></path>
+                            </svg>
+                            Settings
+                        </a>
+                        <a data-v-9589e138="" href="/settings/billing"
+                           class="hover:bg-gray-700 text-gray-400 hover:text-gray-300 ml-2 mt-1 group flex items-center px-2 py-2 text-md leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150">
+                            <svg data-v-9589e138="" fill="currentColor" viewBox="0 0 20 20"
+                                 class="mr-3 h-5 w-5 text-gray-400 hover:text-gray-300 transition ease-in-out duration-150">
+                                <path data-v-9589e138="" d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
+                                <path data-v-9589e138=""
+                                      d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                                      clip-rule="evenodd" fill-rule="evenodd"></path>
+                            </svg>
+                            Billing
+                        </a>
+                        <a data-v-9589e138=""
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           class="text-red-400 hover:text-red-400 ml-2 mb-8 mt-4 group flex items-center px-2 py-2 text-md leading-5 font-medium">
+                            <form data-v-9589e138="" id="logout-form" asp-page="/auth/login" asp-page-handler="logout" method="POST" style="display: none">
+                                <input data-v-9589e138="" type="hidden" name="_token"
+                                       value="IBEcvbcnRhPg8WkMf5pljuG0DSOaijafbxITAZrf" />
+                            </form>
+                            <svg data-v-9589e138="" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                 stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"
+                                 class="mr-3 h-5 w-5 text-red-400 hover:text-red-400">
+                                <path data-v-9589e138=""
+                                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                </path>
+                            </svg>
+                            Logout
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            <div data-v-c0d0209c="" class="flex flex-col w-0 flex-1 overflow-hidden">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+<script>
+</script>
+</body>
+</html>

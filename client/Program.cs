@@ -1,7 +1,18 @@
+using client.Common;
+using client.Pages.Config;
+using DataAccess.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ServerConfig>();
+builder.Services.AddScoped<AccessTokenManager>();
+
+builder.Services.AddSession();
+
 
 var app = builder.Build();
 
@@ -21,5 +32,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseSession();
 
 app.Run();

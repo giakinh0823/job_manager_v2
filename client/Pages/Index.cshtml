@@ -4,7 +4,1034 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <div class="relative bg-purple-900 overflow-hidden">
+        <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full">
+            <div class="relative h-full max-w-screen-xl mx-auto">
+            </div>
+        </div>
+
+        <div class="relative pt-6 pb-12 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
+            <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
+                <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
+                    <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0 ">
+                        <div class="flex items-center justify-between w-full md:w-auto md:block lg:hidden">
+                            <a href="Auth\Register"
+                               class="bg-purple-900 inline-flex items-center px-4 py-2 border-transparent text-base leading-6 font-medium rounded-md text-purple-400 hover:text-purple-500">
+                                Sign in
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <a href="#pricing"
+                           class="font-medium text-gray-400 hover:text-gray-200 focus:outline-none transition duration-150 ease-in-out">Pricing</a>
+                        <a href="#features"
+                           class="ml-10 font-medium text-gray-400 hover:text-gray-200 focus:outline-none transition duration-150 ease-in-out">Features</a>
+                        <a href="#faq"
+                           class="ml-10 font-medium text-gray-400 hover:text-gray-200 focus:outline-none transition duration-150 ease-in-out">FAQ</a>
+                        <a href="https://docs.cronhub.io"
+                           class="ml-10 font-medium text-gray-400 hover:text-gray-200 focus:outline-none transition duration-150 ease-in-out">Docs</a>
+                        <a href="https://blog.cronhub.io"
+                           class="ml-10 font-medium text-gray-400 hover:text-gray-200 focus:outline-none transition duration-150 ease-in-out">Blog</a>
+                        <a href="https://crontab.cronhub.io"
+                           class="ml-10 font-medium text-gray-400 hover:text-gray-200 focus:outline-none transition duration-150 ease-in-out">
+                            Free
+                            tools
+                        </a>
+                    </div>
+                    <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+                        <span class="inline-flex rounded-md  bg-purple-900">
+                            <a href="Auth\Login"
+                               class="bg-purple-900 inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-purple-100 bg-white hover:text-purple-300 newstyle_homepage">
+                                Sign in
+                            </a>
+                        </span>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
+
+                <div class="text-center">
+                    <h1 class="text-shadow-main text-4xl mx-auto tracking-tight leading-10 font-extrabold text-white sm:text-5xl sm:leading-none md:text-6xl max-w-5xl">
+                        The fastest way to schedule and monitor cron jobs
+                    </h1>
+                    <p class="mt-3 max-w-md mx-auto text-base text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                        Cronhub helps you to easily run any command or script on schedule without managing servers, DevOps,
+                        and
+                        infrastructure.
+                    </p>
+                    <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+                        <div class="rounded-md shadow">
+                            <a href="#pricing"
+                               class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white hover:bg-purple-500 hover:text-white focus:outline-none focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10 bg-purple-600">
+                                Get Started for Free
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-12 bg-purple-900 " id="features">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10 text-shadow-main">
+                    What's included?
+                </h3>
+                <p class="mt-4 max-w-2xl text-xl leading-7 text-purple-200 lg:mx-auto">
+                    Everything you need to schedule and monitor your recurring jobs without writing any code. Focus on your
+                    application,
+                    and we will handle the scheduling part.
+                </p>
+            </div>
+
+            <div class="mt-16 ml-4 mr-4">
+                <ul class="md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-20">
+
+                    <li>
+                        <div class="flex mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-24 w-24 rounded-md bg-purple-900 text-white">
+                                    <svg class="h-14 w-14" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                              clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-xl leading-6 font-bold text-white">Job scheduling</h5>
+                                <p class="mt-2 text-base leading-6 text-purple-200">
+                                    Schedule jobs by using any time interval or cron expression.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="flex mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-24 w-24 rounded-md bg-purple-900 text-white">
+                                    <svg class="h-14 w-14" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                              clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-xl leading-6 font-bold text-white">Job monitoring</h5>
+                                <p class="mt-2 text-base leading-6 text-purple-200">
+                                    Set up one-click uptime and running time monitoring for your recurring jobs.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="flex mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-24 w-24 rounded-md bg-purple-900 text-white">
+                                    <svg class="h-14 w-14" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-xl leading-6 font-bold text-white">Instant alerts</h5>
+                                <p class="mt-2 text-base leading-6 text-purple-200">
+                                    Get instant alerts if your jobs fail
+                                    or run longer than expected.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="flex mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-24 w-24 rounded-md bg-purple-900 text-white">
+                                    <svg class="h-14 w-14" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-xl leading-6 font-bold text-white">Team support</h5>
+                                <p class="mt-2 text-base leading-6 text-purple-200">
+                                    Invite and collaborate with your team members using a shared dashboard.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="flex mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-24 w-24 rounded-md bg-purple-900 text-white">
+                                    <svg class="h-14 w-14" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-xl leading-6 font-bold text-white">Metric insights</h5>
+                                <p class="mt-2 text-base leading-6 text-purple-200">
+                                    Get rich analytics on critical metrics of your jobs and monitors.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div class="flex mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-24 w-24 rounded-md bg-purple-900 text-white">
+                                    <svg class="h-14 w-14" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                                        <path d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                              clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-xl leading-6 font-bold text-white">Access to logs</h5>
+                                <p class="mt-2 text-base leading-6 text-purple-200">
+                                    Easy access to your logs. All in one place nicely organized.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-16 overflow-hidden lg:py-24 bg-purple-900">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-screen-xl">
+            <svg class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" width="404"
+                 height="784" fill="none" viewBox="0 0 404 784">
+                <defs>
+                    <pattern id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7" x="0" y="0" width="20" height="20"
+                             patternUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                    </pattern>
+                </defs>
+                <rect width="404" height="784" fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)" />
+            </svg>
+
+            <div class="relative">
+                <h3 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10 text-shadow-main">
+                    How does it work?
+                </h3>
+            </div>
+
+            <div class="relative mt-12 lg:mt-16 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+                <div class="relative">
+                    <h4 class="text-2xl leading-8 font-extrabold text-white tracking-tight sm:text-2xl sm:leading-9">
+                        Job Scheduler
+                    </h4>
+                    <p class="mt-3 text-lg leading-7 text-purple-200">
+                        Do you want to automate tasks but don't want to handle all the complicated job scheduling part?
+                    </p>
+
+
+                    <ul class="mt-10">
+                        <li>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 text-white">
+                                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                                  clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h5 class="text-lg leading-6 font-medium text-white">1. Set your schedule</h5>
+                                    <p class="mt-2 text-base leading-6 text-purple-200">
+                                        We support time intervals and cron expressions.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mt-10">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 text-white">
+                                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                                                  clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h5 class="text-lg leading-6 font-medium text-white">2. Define the target URL</h5>
+                                    <p class="mt-2 text-base leading-6 text-purple-200">
+                                        It can be a webhook or any API endpoint that runs your job function.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mt-10">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 text-white">
+                                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                                            <path d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                  clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h5 class="text-lg leading-6 font-medium text-white">3. We handle the rest</h5>
+                                    <p class="mt-2 text-base leading-6 text-purple-200">
+                                        We will send an HTTP request to your Target URL according to the schedule. It just
+                                        works.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-10 -mx-4 relative lg:mt-0">
+                    <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784"
+                         height="404" fill="none" viewBox="0 0 784 404">
+                        <defs>
+                            <pattern id="ca9667ae-9f92-4be7-abcb-9e3d727f2941" x="0" y="0" width="20" height="20"
+                                     patternUnits="userSpaceOnUse">
+                                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                            </pattern>
+                        </defs>
+                        <rect width="784" height="404" fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)" />
+                    </svg>
+                    <image class="relative mx-auto shadow-2xl" width="540" src="/image/new-scheduler-help-2.png"
+                         alt="cronhub new scheduler window" />
+                </div>
+            </div>
+
+            <svg class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12" width="404"
+                 height="784" fill="none" viewBox="0 0 404 784">
+                <defs>
+                    <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20"
+                             patternUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                    </pattern>
+                </defs>
+                <rect width="404" height="784" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+            </svg>
+
+
+            <div class="relative mt-12 sm:mt-16 lg:mt-24">
+                <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
+                    <div class="lg:col-start-2">
+                        <h4 class="text-2xl leading-8 font-extrabold text-white tracking-tight sm:text-2xl sm:leading-9">
+                            Job Monitoring
+                        </h4>
+                        <p class="mt-3 text-lg leading-7 text-purple-200">
+                            Have you lost data, money or customers because your cron jobs stopped running?
+                        </p>
+
+                        <ul class="mt-10">
+                            <li>
+                                <div class="flex">
+                                    <div class="flex-shrink-0">
+                                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 text-white">
+                                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                      clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h5 class="text-lg leading-6 font-medium text-white">
+                                            1. You set up your monitor
+                                        </h5>
+                                        <p class="mt-2 text-base leading-6 text-purple-200">
+                                            Creating and integrating a new monitor with your job is a breeze.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mt-10">
+                                <div class="flex">
+                                    <div class="flex-shrink-0">
+                                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 text-white">
+                                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                                                      clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h5 class="text-lg leading-6 font-medium text-white">
+                                            2. We continuously monitor
+                                        </h5>
+                                        <p class="mt-2 text-base leading-6 text-purple-200">
+                                            After your job makes the first ping we will start monitoring your job according
+                                            to the schedule.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mt-10">
+                                <div class="flex">
+                                    <div class="flex-shrink-0">
+                                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 text-white">
+                                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h5 class="text-lg leading-6 font-medium text-white">
+                                            3. We send you alerts
+                                        </h5>
+                                        <p class="mt-2 text-base leading-6 text-purple-200">
+                                            If your job fails to run on schedule or runs longer than it should we will
+                                            notify you. We support Email, Slack, SMS, Webhook and PagerDuty integrations.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+                        <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784"
+                             height="404" fill="none" viewBox="0 0 784 404">
+                            <defs>
+                                <pattern id="e80155a9-dfde-425a-b5ea-1f6fadd20131" x="0" y="0" width="20" height="20"
+                                         patternUnits="userSpaceOnUse">
+                                    <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                                </pattern>
+                            </defs>
+                            <rect width="784" height="404" fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)" />
+                        </svg>
+                        <image class="relative mx-auto mx-auto shadow-2xl" width="540" src="/image/new-monitor-help.png"
+                             alt="cronhub new monitor window" />
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <section class="bg-purple-900">
+        <div class="max-w-screen-xl mx-auto md:grid md:grid-cols-2 md:px-6 lg:px-8">
+            <div class="py-12 px-4 sm:px-6 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 md:border-r md:border-indigo-900 lg:pr-16">
+                <blockquote class="mt-8 md:flex-grow md:flex md:flex-col">
+                    <div class="relative text-lg leading-7 font-medium text-white md:flex-grow">
+                        <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-indigo-600"
+                             fill="currentColor" viewBox="0 0 32 32">
+                            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                        </svg>
+                        <p class="relative">
+                            Cronhub helped me track down and fix a rare bug when it immediately notified me of a cron
+                            failure. With that
+                            real-time alert, I was able to hop on the server, fix the bug and make the world right again.
+                            Thanks Cronhub
+                            :heart:
+                        </p>
+                    </div>
+                    <footer class="mt-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0 inline-flex rounded-full border-2 border-white">
+                                <image class="h-12 w-12 rounded-full" src="/image/tom-redman.jpg" alt="Tom Redman, Buffer" />
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-base leading-6 font-medium text-white">Tom Redman</div>
+                                <div class="text-base leading-6 font-medium text-indigo-200">Product Manager, Buffer</div>
+                            </div>
+                        </div>
+                    </footer>
+                </blockquote>
+            </div>
+            <div class="py-12 px-4 border-t-2 border-indigo-900 sm:px-6 md:py-16 md:pr-0 md:pl-10 md:border-t-0 md:border-l lg:pl-16">
+                <blockquote class="mt-4 md:flex-grow md:flex md:flex-col">
+                    <div class="relative text-lg leading-7 font-medium text-white md:flex-grow">
+                        <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-indigo-600"
+                             fill="currentColor" viewBox="0 0 32 32">
+                            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                        </svg>
+                        <p class="relative">
+                            Monitoring cron jobs is usually approached like security: by the time you realise you need it
+                            it's too late.
+                            Cronhub helped me identify failing cron jobs within the first week of setting it up. Do yourself
+                            a favour
+                            and sign up before you realise that some critical jobs are silently failing in the background!
+                        </p>
+                    </div>
+                    <footer class="mt-8">
+
+                        <div class="flex">
+
+                            <div class="flex-shrink-0 inline-flex rounded-full border-2 border-white">
+                                <image class="h-12 w-12 rounded-full" src="/image/phil-doorbell.jpeg"
+                                     alt="Phil Manavopoulos, Doorbell" />
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-base leading-6 font-medium text-white">Philip Manavopoulos</div>
+                                <div class="text-base leading-6 font-medium text-indigo-200">CEO, Doorbell.io</div>
+                            </div>
+
+
+                        </div>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-purple-900" id="pricing">
+        <div class="pt-12 sm:pt-16 lg:pt-24">
+            <div class="max-w-screen-xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto lg:max-w-none">
+                    <p class="mt-2 text-3xl leading-9 font-extrabold text-white sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none">
+                        Affordable plans for every developer.
+                    </p>
+                    <p class="mt-2 text-xl leading-7 text-gray-300">
+                        All paid plans come with a 7-day free trial. Cancel anytime.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 pb-12 bg-purple-900 sm:mt-12 sm:pb-16 lg:mt-16 lg:pb-24">
+            <div class="relative">
+                <div class="absolute inset-0 h-3/4 bg-purple-900"></div>
+                <div class="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-md mx-auto lg:max-w-5xl lg:grid lg:grid-cols-3 lg:gap-5">
+                        <div class="mt-3 rounded-lg shadow-lg overflow-hidden">
+                            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                                <div>
+                                    <span class="inline-flex px-4 py-1 rounded-full text-sm leading-5 font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600">Developer</span>
+                                </div>
+                                <div class="mt-4 flex items-baseline text-6xl text-purple-900 leading-none font-extrabold">
+                                    $19
+                                    <span class="ml-1 text-2xl leading-8 font-medium text-purple-900">/mo</span>
+                                </div>
+                            </div>
+                            <div class="px-6 pt-6 pb-8 bg-gray-50 sm:p-10 sm:pt-6">
+                                <ul>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">5 schedulers</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">10 monitors</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                      clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">No team members</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Email and Slack alerts</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">SMS alerts</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Webhook integration</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Weekly reports</p>
+                                    </li>
+                                </ul>
+                                <div class="mt-6 rounded-md shadow">
+                                    <a href="/register"
+                                       class="flex hover:text-white items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                                        Get
+                                        started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 rounded-lg shadow-lg overflow-hidden">
+                            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                                <div>
+                                    <span class="inline-flex px-4 py-1 rounded-full text-sm leading-5 font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600">Startup</span>
+                                </div>
+                                <div class="mt-4 flex items-baseline text-6xl leading-none font-extrabold text-purple-900">
+                                    $49
+                                    <span class="ml-1 text-2xl leading-8 font-medium text-purple-900">/mo</span>
+                                </div>
+                            </div>
+                            <div class="px-6 pt-6 pb-8 bg-gray-50 sm:p-10 sm:pt-6">
+                                <ul>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">20 schedulers</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">50 monitors</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">5 team members</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Email and Slack alerts</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">SMS alerts</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Webhook integration</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Weekly reports</p>
+                                    </li>
+                                </ul>
+                                <div class="mt-6 rounded-md shadow">
+                                    <a href="/register"
+                                       class="flex hover:text-white items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                                        Get
+                                        started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 rounded-lg shadow-lg overflow-hidden">
+                            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                                <div>
+                                    <span class="inline-flex px-4 py-1 rounded-full text-sm leading-5 font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600">Business</span>
+                                </div>
+                                <div class="mt-4 flex items-baseline text-6xl leading-none font-extrabold text-purple-900">
+                                    $99
+                                    <span class="ml-1 text-2xl leading-8 font-medium text-purple-900">/mo</span>
+                                </div>
+                            </div>
+                            <div class="px-6 pt-6 pb-8 bg-gray-50 sm:p-10 sm:pt-6">
+                                <ul>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">50 schedulers</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">100 monitors</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Unlimited team members</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Email and Slack alerts</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">SMS alerts</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Webhook integration</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Weekly reports</p>
+                                    </li>
+                                </ul>
+                                <div class="mt-6 rounded-md shadow">
+                                    <a href="/register"
+                                       class="flex hover:text-white items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                                        Get
+                                        started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 rounded-lg shadow-lg overflow-hidden">
+                            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                                <div>
+                                    <span class="inline-flex px-4 py-1 rounded-full text-sm leading-5 font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600">Enterprise</span>
+                                </div>
+                                <div class="mt-4 flex items-baseline text-6xl leading-none font-extrabold text-purple-900">
+                                    $299
+                                    <span class="ml-1 text-2xl leading-8 font-medium text-purple-900">/mo</span>
+                                </div>
+                            </div>
+                            <div class="px-6 pt-6 pb-8 bg-gray-50 sm:p-10 sm:pt-6">
+                                <ul>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Unlimited schedulers</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Unlimited monitors</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Unlimited team members</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Email and Slack alerts</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">SMS alerts</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Webhook integration</p>
+                                    </li>
+                                    <li class="mt-4 flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-6 w-6 text-green-500" stroke="currentColor" fill="none"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-3 text-base leading-6 text-gray-700">Weekly reports</p>
+                                    </li>
+                                </ul>
+                                <div class="mt-6 rounded-md shadow">
+                                    <a href="/register"
+                                       class="flex hover:text-white items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                                        Get
+                                        started
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-purple-900" id="faq">
+        <div class="max-w-screen-xl mx-auto pt-12 pb-16 sm:pt-16 sm:pb-20 px-4 sm:px-6 lg:pt-20 lg:pb-28 lg:px-8">
+            <h2 class="text-3xl leading-9 font-extrabold text-white text-center">
+                Frequently asked questions
+            </h2>
+            <div class="mt-6 border-t-2 border-gray-100 pt-10">
+                <dl class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <div>
+                            <dt class="text-lg leading-6 font-medium text-white">
+                                How does Cronhub scheduler work?
+                            </dt>
+                            <dd class="mt-2">
+                                <p class="text-base leading-6 text-purple-200">
+                                    With the scheduler, you specify the job schedule and target URL. We make an HTTP
+                                    request to your target URL
+                                    according to your schedule. The schedule can be any time interval or cron expression. Of
+                                    course, you can customize HTTP
+                                    requests.
+                                </p>
+                            </dd>
+                        </div>
+                        <div class="mt-12">
+                            <dt class="text-lg leading-6 font-medium text-white">
+                                How does Cronhub monitoring work?
+                            </dt>
+                            <dd class="mt-2">
+                                <p class="text-base leading-6 text-purple-200">
+                                    For each job, you create a monitor and get a unique URL. You use this URL to make an
+                                    HTTP request from your cron job.
+                                    When you make a request, Cronhub knows when your job should run next based on the
+                                    monitor schedule. If your cron job
+                                    doesn't run on time or runs longer than expected, we alert you.
+                                </p>
+                            </dd>
+                        </div>
+                        <div class="mt-12">
+                            <dt class="text-lg leading-6 font-medium text-white">
+                                How reliable is Cronhub?
+                            </dt>
+                            <dd class="mt-2">
+                                <p class="text-base leading-6 text-purple-200">
+                                    Our monitoring servers are on Digitial Ocean, and schedulers are serverless on AWS. I
+                                    use Cronhub to schedule and
+                                    monitor my jobs.
+                                </p>
+                            </dd>
+                        </div>
+                    </div>
+                    <div class="mt-12 md:mt-0">
+                        <div class="mt-12">
+                            <dt class="text-lg leading-6 font-medium text-white">
+                                Who built Cronhub?
+                            </dt>
+                            <dd class="mt-2">
+                                <p class="text-base leading-6 text-purple-200">
+                                    Hi, my name is Tigran. You can learn more about me on my <a class="text-purple-200 underline hover:text-white hover:underline"
+                                                                                                href="https://tik.dev">website</a> or on <a class="text-purple-200 underline hover:text-white hover:underline"
+                                                                                                                                            href="https://twitter.com/tiggreen">Twitter</a>, where I regularly share Cronhub
+                                    updates.
+                                </p>
+                            </dd>
+                        </div>
+                        <div class="mt-12">
+                            <dt class="text-lg leading-6 font-medium text-white">
+                                Do you have other questions?
+                            </dt>
+                            <dd class="mt-2">
+                                <p class="text-base leading-6 text-purple-200">
+                                    If I missed any questions, feel free to <a href="/cdn-cgi/l/email-protection#761f18101936150419181e0314581f19">
+                                        reach
+                                        out
+                                    </a>. We'll do our best to get back to you as soon as possible.
+                                </p>
+                            </dd>
+                        </div>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-purple-900">
+        <div class="max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <h2 class="text-3xl leading-9 font-extrabold  ml-16 mr-16 tracking-tight text-white sm:text-4xl sm:leading-10">
+                Let's get your first scheduler up and running. <br> It takes less than a minute.
+            </h2>
+            <div class="mt-8 flex justify-center">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="https://cronhub.io/register"
+                       class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-purple-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                        Get started
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex">
+                    <a href="https://docs.cronhub.io" target="_blank"
+                       class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-indigo-300 transition duration-150 ease-in-out">
+                        Learn more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-purple-900">
+        <div class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
+                <div class="px-5 py-2">
+                    <a href="https://status.cronhub.io/" class="text-base leading-6 text-purple-200 hover:text-white">
+                        API Status
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="https://blog.cronhub.io/" class="text-base leading-6 text-purple-200 hover:text-white">
+                        Blog
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/terms" class="text-base leading-6 text-purple-200 hover:text-white">
+                        Terms & Privacy Policy
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="https://crontab.cronhub.io" class="text-base leading-6 text-purple-200 hover:text-white">
+                        Cron Expression Generator
+                    </a>
+                </div>
+            </nav>
+            <div class="mt-8 flex justify-center">
+                <a href="https://twitter.com/cronhubio" class="ml-6 text-gray-400 hover:text-purple-200">
+                    <span class="sr-only">Twitter</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                    </svg>
+                </a>
+                <a href="https://github.com/cronhub" class="ml-6 text-gray-400 hover:text-purple-200">
+                    <span class="sr-only">GitHub</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                              clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            <div class="mt-8">
+                <p class="text-center text-base leading-6 text-gray-400">
+                    &copy; 2022 Cronhub, LLC. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
