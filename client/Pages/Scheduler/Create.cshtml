@@ -1,0 +1,186 @@
+﻿@page
+@model Client.Pages.Scheduler.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "Shared/_MainLayout";
+}
+
+<main data-v-c0d0209c="" tabindex="0" class="flex-1 relative z-0 overflow-y-auto py-6 focus:outline-none">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div>
+            <div class="h-96">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="mt-2 mb-5 md:flex md:items-center md:justify-between">
+                        <div class="flex-1 min-w-0">
+                            <h2 class="text-indigo-900 text-md sm:text-3xl sm:leading-9 sm:truncate">
+                                <a href="/schedulers"
+                                   class="font-bold no-underline hover:underline hover:text-indigo-800 router-link-active">Create Schedulers</a>
+                            </h2>
+                            <div class="max-w-xl flex-1 text-sm leading-5 text-gray-500">
+                                <p>
+                                    Use schedulers to run any command or script
+                                    periodically
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white overflow-hidden sm:rounded-md bg-white shadow-sm border-solid border-gray-100 border-2">
+                        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 bg-gray-100">
+                            <div class="md:grid md:grid-cols-3 md:gap-6">
+                                <div class="md:col-span-1">
+                                    <div class="px-4 sm:px-0">
+                                        <h3 class="text-lg font-medium leading-6 text-gray-900">
+                                            Let's create your scheduler
+                                        </h3>
+                                        <p class="mt-1 text-sm leading-5 text-gray-600">
+                                            We will make an HTTP request to your Target URL
+                                            according to your schedule. No more working with
+                                            servers.
+                                            
+                                        </p>
+                                        <div class="hidden sm:block">
+                                            <div class="py-5">
+                                                <div class="border-t border-gray-200"></div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                </div>
+                                <div class="mt-5 md:mt-0 md:col-span-2">
+                                    <div class="shadow overflow-hidden sm:rounded-md">
+                                        <div class="px-4 py-5 bg-white sm:p-6">
+                                            <form method="post" id="create">
+                                                <div class="grid grid-cols-6 gap-6">
+                                                    <div asp-validation-summary="ModelOnly" class="text-danger">@ViewData["Error"]</div>
+                                                    <div class="col-span-6 sm:col-span-6">
+                                                        <label for="JobName"
+                                                               class="text-sm font-medium leading-5 text-gray-700">
+                                                            Job Name
+                                                        </label>
+                                                        <input id="JobName" asp-for="JobCreateRequest.Name"
+                                                               class="mt-1 form-input w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                                        <!---->
+                                                    </div>
+                                                    <div class="col-span-6 sm:col-span-6">
+                                                        <label for="JobDescription"
+                                                               class="text-sm font-medium leading-5 text-gray-700">
+                                                            Job Description
+                                                        </label>
+                                                        <input id="JobDescription" asp-for="JobCreateRequest.Description"
+                                                               class="mt-1 form-input w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                                        <!---->
+                                                    </div>
+                                                    <div class="col-span-4 sm:col-span-4">
+                                                        <label for="url"
+                                                               class="text-sm font-medium leading-5 text-gray-700">
+                                                            Webhook
+                                                        </label>
+                                                        <div class="mt-1 relative rounded-md shadow-sm">
+                                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                                <svg fill="currentColor" viewBox="0 0 20 20"
+                                                                     class="h-5 w-5 text-gray-400">
+                                                                    <path d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                                                                          clip-rule="evenodd" fill-rule="evenodd">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <input type="text" id="url" asp-for="JobCreateRequest.Webhook"
+                                                                   placeholder="https://api.example.com/run_daily_job"
+                                                                   class="form-input block w-full pl-10 sm:text-sm sm:leading-5 border-gray-300 rounded" />
+                                                        </div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="col-span-6 sm:col-span-6">
+                                                        <label for="Payload"
+                                                               class="text-sm font-medium leading-5 text-gray-700">
+                                                            Payload
+                                                        </label>
+                                                        <input id="Payload" asp-for="JobCreateRequest.Payload"
+                                                               class="mt-1 form-input w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                                        <!---->
+                                                    </div>
+                                                    <div class="col-span-6 sm:col-span-6">
+                                                        <label for="Header"
+                                                               class="text-sm font-medium leading-5 text-gray-700">
+                                                            Header
+                                                        </label>
+                                                        <input id="Header" asp-for="JobCreateRequest.Header"
+                                                               class="mt-1 form-input w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                                        <!---->
+                                                    </div>
+
+                                                    <!---->
+                                                    <div class="col-span-2 sm:col-span-2">
+                                                        <label for="http_method"
+                                                               class="text-sm font-medium leading-5 text-gray-700">Method</label>
+                                                        <select id="http_method" asp-for="JobCreateRequest.Method"
+                                                                class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                                            <option value="GET">GET</option>
+                                                            <option value="POST">POST</option>
+                                                            <option value="PUT">PUT</option>
+                                                            <option value="DELETE">DELETE</option>
+
+                                                        </select>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="col-span-2 sm:col-span-2">
+                                                        <label for="type"
+                                                               class="text-sm font-medium leading-5 text-gray-700">
+                                                            Status
+                                                        </label>
+                                                        <select id="type" asp-for="JobCreateRequest.Status"
+                                                                class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                                            <option value="ACTIVE">Active</option>
+                                                            <option value="INACTIVE">Inactive</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-span-6 sm:col-span-6">
+                                                        <label for="Expression"
+                                                               class="text-sm font-medium leading-5 text-gray-700">
+                                                            Expression
+                                                        </label>
+                                                                <input id="Expression" asp-for="JobCreateRequest.Expression"
+                                                               class="mt-1 form-input w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                                        <!---->
+                                                    </div>
+                                                </div>
+                                            </form>
+                                                <div>
+                                                    <div class="relative flex items-start">
+                                                        <div class="absolute flex items-center h-5"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                                    <div class="flex justify-end">
+                                                        <span class="inline-flex rounded-md shadow-sm">
+                                                            <a href="/Scheduler" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out router-link-active"
+                                                               type="button">
+                                                                Cancel
+                                                            </a>
+                                                        </span>
+                                                        <span class="ml-3 inline-flex rounded-md shadow-sm">
+                                                            <button onclick="$('#create').submit()" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out router-link-active">
+                                                                Save
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

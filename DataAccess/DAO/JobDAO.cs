@@ -59,6 +59,22 @@ namespace DataAccess.DAO
             }
         }
 
+        public static Job FindByUserIdAndJobId(int? userId, int? jobId)
+        {
+            try
+            {
+                using (var db = new JobManagerContext())
+                {
+                    return db.Jobs.Include(job => job.Logs).Where(u => u.UserId == userId && u.JobId == jobId).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error excute database: " + ex.Message);
+                return new Job();
+            }
+        }
+
 
         public static void Add(Job job)
         {

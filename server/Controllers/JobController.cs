@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Quartz;
 using server.Constant;
 using server.CronJob;
+using server.Dto.Base;
 using server.Dto.Job;
 using server.Models;
 using server.Utils;
@@ -38,6 +39,17 @@ namespace server.Controllers
         {
             AccessTokenPayload? payload = CommonUtil.GetPayload(HttpContext.Request);
             return await Task.FromResult<IActionResult>(Ok(_jobRepository.FindByUserId(payload.UserId)));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int? id)
+        {
+            if(id == null)
+            {
+                throw new ApplicationException("Không tìm thấy job");
+            }
+            AccessTokenPayload? payload = CommonUtil.GetPayload(HttpContext.Request);
+            return await Task.FromResult<IActionResult>(Ok(_mapper.Map<JobResponse>(_jobRepository.FindByUserIdAndJobId(payload.UserId, id))));
         }
 
         [HttpPost]
@@ -152,7 +164,7 @@ namespace server.Controllers
             _logRepository.DeleteAll(logs);
             _jobRepository.Delete(job);
 
-            return await Task.FromResult<IActionResult>(Ok("Success"));
+            return await Task.FromResult<IActionResult>(Ok(new BaseResponse { isSuccess = true, Message = "Xóa job thành công"}));
         }
 
         private bool JobExists(int id)

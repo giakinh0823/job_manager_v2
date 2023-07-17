@@ -1,0 +1,56 @@
+@page "/scheduler/{id}"
+@model Client.Pages.Scheduler.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "Shared/_MainLayout";
+}
+
+<main data-v-c0d0209c="" tabindex="0" class="flex-1 relative z-0 overflow-y-auto py-6 focus:outline-none">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div>
+                <div class="h-96">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="mt-2 mb-5 md:flex md:items-center md:justify-between">
+                            <div class="flex-1 min-w-0">
+                                <h2 class="text-indigo-900 text-md sm:text-3xl sm:leading-9 sm:truncate">
+                                    <a href="#"
+                                       class="font-bold no-underline hover:underline hover:text-indigo-800 router-link-exact-active router-link-active"
+                                       aria-current="page">Log</a>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 sm:rounded-md bg-gray-50 border-solid border-gray-100 border-2 overflow-auto">
+                            <ul>
+                                <table class="table" style="width: 100%;">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Job Name</th>
+                                        <th scope="col">Response</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Start</th>
+                                        <th scope="col">End</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @if(Model.Logs != null){
+                                        @foreach (var item in @Model.Logs)
+                                        {
+                                            <tr scope="row">
+                                                <td>@Model?.Job?.Name</td>
+                                                <td>@item?.Output</td>
+                                                <td>@item?.Status</td>
+                                                <td>@item?.StartTime</td>
+                                                <td>@item?.EndTime</td>
+                                            </tr>
+                                        }
+                                    }
+                                    </tbody>
+                                </table>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

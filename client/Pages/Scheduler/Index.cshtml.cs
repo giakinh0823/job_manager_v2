@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Quartz;
 using server.Dto.Auth;
 using System.Net.Http.Headers;
+using server.Dto.Base;
 
 namespace Client.Pages.Scheduler
 {
@@ -40,7 +41,8 @@ namespace Client.Pages.Scheduler
         
         public async Task<IActionResult> OnGetDelete(int? id)
         {
-            
+            if (id == null) return NotFound();
+            await _apiHelper.DeleteAsync<BaseResponse>($"{_serverConfig.Domain}/api/v1/jobs/" + id, true);
             return new RedirectResult("/Scheduler");
         }
     }
