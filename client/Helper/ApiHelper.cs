@@ -93,14 +93,14 @@ namespace Client.Helper
                 PropertyNameCaseInsensitive = true
             };
 
-            string json = JsonSerializer.Serialize(data);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
             if (isAuthen != null & isAuthen == true)
             {
                 string accessToken = await _accessTokenManager.GetAccessTokenAsync();
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             }
+
+            string json = JsonSerializer.Serialize(data);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await _httpClient.PostAsync(url, content);
 
@@ -161,6 +161,38 @@ namespace Client.Helper
             {
                 PropertyNameCaseInsensitive = true
             };
+
+            string json = JsonSerializer.Serialize(data);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PutAsync(url, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                using var stream = await response.Content.ReadAsStreamAsync();
+                var responseData = await JsonSerializer.DeserializeAsync<TResponse>(stream, options);
+                return new ApiResponse<TResponse> { IsSuccess = true, Data = responseData };
+            }
+            else
+            {
+                using var errorStream = await response.Content.ReadAsStreamAsync();
+                var errorResponse = await JsonSerializer.DeserializeAsync<ErrorResponse>(errorStream, options);
+                return new ApiResponse<TResponse> { IsSuccess = false, ErrorMessage = errorResponse?.Message };
+            }
+        }
+
+        public async Task<ApiResponse<TResponse>> PutAsync<TResponse>(string url, object data, bool? isAuthen)
+        {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            if (isAuthen != null & isAuthen == true)
+            {
+                string accessToken = await _accessTokenManager.GetAccessTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            }
 
             string json = JsonSerializer.Serialize(data);
             var content = new StringContent(json, Encoding.UTF8, "application/json");

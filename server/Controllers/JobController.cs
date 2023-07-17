@@ -103,16 +103,23 @@ namespace server.Controllers
             {
                 throw new ApplicationException("Không tìm thấy job");
             }
-            Job newJob = _mapper.Map<Job>(request);
-            newJob.JobId = job.JobId;
-            newJob.CreatedAt = job.CreatedAt;
-            newJob.UpdatedAt = DateTime.Now;
-            _jobRepository.Update(newJob);
+
+            job.Expression = request.Expression;
+            job.Header = request.Header;
+            job.Method = request.Method;
+            job.Name = request.Name;
+            job.Description = request.Description;
+            job.UpdatedAt = DateTime.Now;
+            job.Payload = request.Payload;
+            job.Status = request.Status;
+            job.Webhook = request.Webhook;
+
+            _jobRepository.Update(job);
 
             try
             {
                 IScheduler scheduler = await _schedulerFactory.GetScheduler();
-                await scheduler.DeleteJob(new JobKey(newJob.JobId.ToString(), payload.UserId.ToString()));
+                await scheduler.DeleteJob(new JobKey(job.JobId.ToString(), payload.UserId.ToString()));
 
                 if (JobConstant.Status.ACTIVE.Equals(job.Status.ToUpper()))
                 {
@@ -143,7 +150,7 @@ namespace server.Controllers
                 }
             }
 
-            return await Task.FromResult<IActionResult>(Ok(job));
+            return await Task.FromResult<IActionResult>(Ok(_mapper.Map<JobResponse>(job)));
         }
 
 
