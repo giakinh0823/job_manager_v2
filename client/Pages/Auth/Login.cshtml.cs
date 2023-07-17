@@ -13,15 +13,15 @@ namespace Client.Pages.Auth
     {
 
         private readonly ServerConfig _serverConfig;
-        private static readonly HttpClient _httpClient = new HttpClient();
-        private static readonly ApiHelper _apiHelper = new ApiHelper(_httpClient);
+        private readonly ApiHelper _apiHelper;
 
         [BindProperty]
         public LoginRequest? LoginRequest { get; set; }
 
-        public LoginModel(ServerConfig serverConfig)
+        public LoginModel(ServerConfig serverConfig, ApiHelper apiHelper)
         {
             _serverConfig = serverConfig;
+            _apiHelper = apiHelper;
         }
 
         public IActionResult OnGet()

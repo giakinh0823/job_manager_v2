@@ -1,4 +1,6 @@
-﻿using System.Net.Http;
+﻿using client.Common;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -19,19 +21,28 @@ namespace Client.Helper
 
     public class ApiHelper
     {
-        internal readonly HttpClient _httpClient;
+        private readonly AccessTokenManager _accessTokenManager;
+        private readonly HttpClient _httpClient;
 
-        public ApiHelper(HttpClient httpClient)
+        public ApiHelper(AccessTokenManager accessTokenManager)
         {
-            _httpClient = httpClient;
+            _httpClient = new HttpClient();
+            _accessTokenManager = accessTokenManager;
         }
 
-        public async Task<ApiResponse<TResponse>> GetAsync<TResponse>(string url)
+      
+        public async Task<ApiResponse<TResponse>> GetAsync<TResponse>(string url, bool? isAuthen)
         {
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             };
+
+            if(isAuthen != null & isAuthen == true)
+            {
+                string accessToken = await _accessTokenManager.GetAccessTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            }
 
             var response = await _httpClient.GetAsync(url);
 
