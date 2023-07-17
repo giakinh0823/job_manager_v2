@@ -76,14 +76,22 @@ public class UserCronJob : IJob
         }
     }
 
-    private static async Task<string> GetApi(string url, object? headers = null)
+    private static async Task<string> GetApi(string url, string? headers = null)
     {
         using var client = new HttpClient();
-        if (headers != null)
+        if (!string.IsNullOrEmpty(headers))
         {
-            string jsonHeaders = JsonConvert.SerializeObject(headers);
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.TryAddWithoutValidation("headers", jsonHeaders);
+            string[] headerLines = headers.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+            foreach (string headerLine in headerLines)
+            {
+                string[] headerParts = headerLine.Split(':', 2);
+                if (headerParts.Length == 2)
+                {
+                    string headerName = headerParts[0].Trim();
+                    string headerValue = headerParts[1].Trim();
+                    client.DefaultRequestHeaders.TryAddWithoutValidation(headerName, headerValue);
+                }
+            }
         }
 
         HttpResponseMessage response = await client.GetAsync(url);
@@ -93,14 +101,22 @@ public class UserCronJob : IJob
         return responseBody;
     }
     
-    private static async Task<string> PostApi(string url, object? headers = null, string? payload = null)
+    private static async Task<string> PostApi(string url, string? headers = null, string? payload = null)
     {
         using var client = new HttpClient();
-        if (headers != null)
+        if (!string.IsNullOrEmpty(headers))
         {
-            string jsonHeaders = JsonConvert.SerializeObject(headers);
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.TryAddWithoutValidation("headers", jsonHeaders);
+            string[] headerLines = headers.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+            foreach (string headerLine in headerLines)
+            {
+                string[] headerParts = headerLine.Split(':', 2);
+                if (headerParts.Length == 2)
+                {
+                    string headerName = headerParts[0].Trim();
+                    string headerValue = headerParts[1].Trim();
+                    client.DefaultRequestHeaders.TryAddWithoutValidation(headerName, headerValue);
+                }
+            }
         }
 
         var content = new StringContent(payload ?? "", Encoding.UTF8, "application/json");
@@ -111,14 +127,22 @@ public class UserCronJob : IJob
         return responseBody;
     }
     
-    private static async Task<string> PutApi(string url, object? headers = null, string? payload = null)
+    private static async Task<string> PutApi(string url, string? headers = null, string? payload = null)
     {
         using var client = new HttpClient();
-        if (headers != null)
+        if (!string.IsNullOrEmpty(headers))
         {
-            string jsonHeaders = JsonConvert.SerializeObject(headers);
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.TryAddWithoutValidation("headers", jsonHeaders);
+            string[] headerLines = headers.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+            foreach (string headerLine in headerLines)
+            {
+                string[] headerParts = headerLine.Split(':', 2);
+                if (headerParts.Length == 2)
+                {
+                    string headerName = headerParts[0].Trim();
+                    string headerValue = headerParts[1].Trim();
+                    client.DefaultRequestHeaders.TryAddWithoutValidation(headerName, headerValue);
+                }
+            }
         }
 
         var content = new StringContent(payload ?? "", Encoding.UTF8, "application/json");
@@ -129,14 +153,22 @@ public class UserCronJob : IJob
         return responseBody;
     }
     
-    private static async Task<string> DeleteApi(string url, object? headers = null)
+    private static async Task<string> DeleteApi(string url, string? headers = null)
     {
         using var client = new HttpClient();
-        if (headers != null)
+        if (!string.IsNullOrEmpty(headers))
         {
-            string jsonHeaders = JsonConvert.SerializeObject(headers);
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.TryAddWithoutValidation("headers", jsonHeaders);
+            string[] headerLines = headers.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+            foreach (string headerLine in headerLines)
+            {
+                string[] headerParts = headerLine.Split(':', 2);
+                if (headerParts.Length == 2)
+                {
+                    string headerName = headerParts[0].Trim();
+                    string headerValue = headerParts[1].Trim();
+                    client.DefaultRequestHeaders.TryAddWithoutValidation(headerName, headerValue);
+                }
+            }
         }
 
         HttpResponseMessage response = await client.DeleteAsync(url);

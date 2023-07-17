@@ -38,7 +38,11 @@
                                         {
                                             <tr scope="row">
                                                 <td>@Model?.Job?.Name</td>
-                                                <td>@item?.Output</td>
+                                                <td>
+                                                    <div style="max-width: 100%; max-height: 200px; overflow: auto; word-break: break-all;">
+                                                        @item?.Output
+                                                    </div>
+                                                </td>
                                                 <td>@item?.Status</td>
                                                 <td>@item?.StartTime</td>
                                                 <td>@item?.EndTime</td>

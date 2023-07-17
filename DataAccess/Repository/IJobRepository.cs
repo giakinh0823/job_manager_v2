@@ -11,6 +11,6 @@ namespace DataAccess.Repository
     {
         List<Job> FindByUserId(int? userId);
 
-        Job FindByUserIdAndJobId(int? userId, int? jobId);
+        Job? FindByUserIdAndJobId(int? userId, int? jobId);
     }
 }

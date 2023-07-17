@@ -49,7 +49,7 @@ namespace DataAccess.DAO
             {
                 using (var db = new JobManagerContext())
                 {
-                    return db.Jobs.Where(u => u.UserId == userId).ToList();
+                    return db.Jobs.Where(u => u.UserId == userId).OrderByDescending(job => job.CreatedAt).ToList();
                 }
             }
             catch (Exception ex)
@@ -59,13 +59,13 @@ namespace DataAccess.DAO
             }
         }
 
-        public static Job FindByUserIdAndJobId(int? userId, int? jobId)
+        public static Job? FindByUserIdAndJobId(int? userId, int? jobId)
         {
             try
             {
                 using (var db = new JobManagerContext())
                 {
-                    return db.Jobs.Include(job => job.Logs).Where(u => u.UserId == userId && u.JobId == jobId).FirstOrDefault();
+                    return db.Jobs.Include(job => job.Logs.OrderByDescending(log => log.StartTime)).Where(u => u.UserId == userId && u.JobId == jobId).FirstOrDefault();
                 }
             }
             catch (Exception ex)
