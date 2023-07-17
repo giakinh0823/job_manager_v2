@@ -71,9 +71,9 @@ namespace server.Controllers
 
             _userRepository.Add(user);
 
-            Role? role = _roleRepository.findByName(RoleEnum.ADMIN);
+            Role? role = _roleRepository.findByName(RoleEnum.USER);
 
-            if (role != null && user.UserId != null) {
+            if (role != null) {
                 UserRole userRole = new UserRole
                 {
                     UserId = user.UserId,
