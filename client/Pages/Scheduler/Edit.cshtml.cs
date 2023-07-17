@@ -12,9 +12,11 @@ using prn_job_manager.Models;
 using Quartz;
 using server.Dto.Job;
 using BusinessObject;
+using client.Config.Security;
 
 namespace Client.Pages.Scheduler
 {
+    [FptAuthorize]
     public class EditModel : PageModel
     {
         private readonly ServerConfig _serverConfig;

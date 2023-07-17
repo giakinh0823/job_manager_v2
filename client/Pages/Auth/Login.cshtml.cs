@@ -58,5 +58,12 @@ namespace Client.Pages.Auth
                 return Page();
             }  
         }
+
+        public async Task<IActionResult> OnPostLogoutAsync()
+        {
+            HttpContext.Session.Remove("AccessToken");
+            HttpContext.Session.Remove("RefreshToken");
+            return RedirectToPage("/auth/login");
+        }
     }
 }

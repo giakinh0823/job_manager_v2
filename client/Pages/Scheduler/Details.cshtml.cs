@@ -5,9 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using server.Dto.Job;
 using server.Dto.Log;
+using client.Common;
+using client.Config.Security;
 
 namespace Client.Pages.Scheduler
 {
+    [FptAuthorize]
     public class DetailsModel : PageModel
     {
         private readonly ServerConfig _serverConfig;
@@ -31,7 +34,6 @@ namespace Client.Pages.Scheduler
             {
                 return NotFound();
             }
-
 
             ApiResponse<JobResponse> result = await _apiHelper.GetAsync<JobResponse>($"{_serverConfig.Domain}/api/v1/jobs/" + Id, true);
             if (result.IsSuccess)

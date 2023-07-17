@@ -40,7 +40,7 @@ namespace Client.Helper
 
             if(isAuthen != null & isAuthen == true)
             {
-                string accessToken = await _accessTokenManager.GetAccessTokenAsync();
+                string? accessToken = await _accessTokenManager.GetAccessTokenAsync();
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             }
 
@@ -95,7 +95,7 @@ namespace Client.Helper
 
             if (isAuthen != null & isAuthen == true)
             {
-                string accessToken = await _accessTokenManager.GetAccessTokenAsync();
+                string? accessToken = await _accessTokenManager.GetAccessTokenAsync();
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             }
 
@@ -190,7 +190,7 @@ namespace Client.Helper
 
             if (isAuthen != null & isAuthen == true)
             {
-                string accessToken = await _accessTokenManager.GetAccessTokenAsync();
+                string? accessToken = await _accessTokenManager.GetAccessTokenAsync();
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             }
 
@@ -245,7 +245,7 @@ namespace Client.Helper
 
             if (isAuthen != null & isAuthen == true)
             {
-                string accessToken = await _accessTokenManager.GetAccessTokenAsync();
+                string? accessToken = await _accessTokenManager.GetAccessTokenAsync();
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             }
 

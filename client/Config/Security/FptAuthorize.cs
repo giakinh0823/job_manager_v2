@@ -1,34 +1,36 @@
-﻿using client.Pages.Config;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc;
+using client.Common;
 using Client.Helper;
-using server.Dto.Auth;
-using server.Utils;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using client.Pages.Config;
+using server.Utils;
+using server.Dto.Auth;
 
-namespace client.Common
+namespace client.Config.Security
 {
-    public class AccessTokenManager
+    public class FptAuthorize : Attribute, IAuthorizationFilter
     {
+
         private const string AccessTokenKey = "AccessToken";
         private const string RefreshTokenKey = "RefreshToken";
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ServerConfig _serverConfig;
         private readonly HttpClient _httpClient;
 
-        public AccessTokenManager(IHttpContextAccessor httpContextAccessor, ServerConfig serverConfig)
+        public FptAuthorize()
         {
-            _httpContextAccessor = httpContextAccessor;
-            _serverConfig = serverConfig;
+            _serverConfig = new ServerConfig();
             _httpClient = new HttpClient();
         }
-
-        public async Task<string?> GetAccessTokenAsync()
+        public async void OnAuthorization(AuthorizationFilterContext context)
         {
-            string accessToken = _httpContextAccessor.HttpContext.Session.GetString(AccessTokenKey);
+            string? accessToken = context.HttpContext.Session.GetString(AccessTokenKey);
 
             if (string.IsNullOrEmpty(accessToken) || !JwtUtils.ValidateToken(accessToken, true))
             {
-                string refreshToken = _httpContextAccessor.HttpContext.Session.GetString(RefreshTokenKey);
+                string refreshToken = context.HttpContext.Session.GetString(RefreshTokenKey);
 
                 if (!string.IsNullOrEmpty(refreshToken))
                 {
@@ -39,13 +41,13 @@ namespace client.Common
 
                     ApiResponse<RefreshTokenResponse> apiResponse = await PostAsync<RefreshTokenResponse>($"{_serverConfig.Domain}/refresh", refreshTokenRequest);
                     accessToken = apiResponse.Data.AccessToken;
-                    _httpContextAccessor.HttpContext.Session.SetString(AccessTokenKey, accessToken);
-                } else
+                    context.HttpContext.Session.SetString(AccessTokenKey, accessToken);
+                }
+                else
                 {
-                    return null;
+                    context.Result = new RedirectToPageResult("/Auth/Login");
                 }
             }
-            return accessToken;
         }
 
         public async Task<ApiResponse<TResponse>> PostAsync<TResponse>(string url, object data)

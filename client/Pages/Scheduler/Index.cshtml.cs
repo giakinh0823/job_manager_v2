@@ -8,9 +8,11 @@ using Quartz;
 using server.Dto.Auth;
 using System.Net.Http.Headers;
 using server.Dto.Base;
+using client.Config.Security;
 
 namespace Client.Pages.Scheduler
 {
+    [FptAuthorize] 
     public class IndexModel : PageModel
     {
         private readonly ServerConfig _serverConfig;

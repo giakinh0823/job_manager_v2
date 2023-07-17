@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Quartz;
 using server.Dto.Job;
 using BusinessObject;
+using client.Config.Security;
 
 namespace Client.Pages.Scheduler
 {
+    [FptAuthorize]
     public class CreateModel : PageModel
     {
         private readonly ServerConfig _serverConfig;
