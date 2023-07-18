@@ -3,6 +3,7 @@ using DataAccess.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server.Constant;
+using server.Dto.Base;
 using server.Dto.Payment;
 using server.Models;
 using server.Utils;
@@ -25,7 +26,22 @@ namespace server.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return Ok();
+            AccessTokenPayload? payload = CommonUtil.GetPayload(HttpContext.Request);
+            PaymentInfo? paymentInfo = _paymentInfoRepository.FindOneByUserId(payload.UserId);
+            if (paymentInfo != null && PaymentStatusConstant.ACTIVE.Equals(paymentInfo?.Status)
+                && paymentInfo.EndDate > DateTime.Now)
+            {
+                return Ok(new PaymentResponse
+                {
+                    PaymentInfo = "Expire time " + paymentInfo?.EndDate.ToString("dd/MM/yyyy"),
+                    NumberOfSchedulers = "Unlimited Schedulers",
+                });
+            }
+            return BadRequest(new BaseResponse()
+            {
+                isSuccess = false,
+                Message = "Không tìm thấy thông tin thanh toán"
+            });
         }
 
         [HttpGet("/sucess/{id}")]

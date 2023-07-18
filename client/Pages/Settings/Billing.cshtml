@@ -1,0 +1,156 @@
+﻿@page
+@model Client.Pages.Settings.BillingModel
+
+@{
+    Layout = "Shared/_MainLayout";
+
+}
+
+<link href="~/css/Home.css" rel="stylesheet" />
+<link href="~/Image" rel="stylesheet" />
+
+<main data-v-c0d0209c="" tabindex="0" class="flex-1 relative z-0 overflow-y-auto py-6 focus:outline-none">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div>
+            <div class="h-96">
+                <div data-v-22639c80="" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div data-v-22639c80="" class="mt-2 mb-5 md:flex md:items-center md:justify-between"><div data-v-22639c80="" class="flex-1 min-w-0"><h2 data-v-22639c80="" class="text-indigo-900 text-md sm:text-3xl sm:leading-9 sm:truncate"><a data-v-22639c80="" href="/settings" class="no-underline hover:underline hover:text-indigo-700 font-black router-link-active">Settings</a></h2></div></div> <div data-v-22639c80="" class="columns">
+                        <div data-v-22639c80="" class="column is-3"><div data-v-22639c80="" class="box dashboard-menu-box"><aside data-v-22639c80="" class="menu"><p data-v-22639c80="" class="menu-label">Personal Settings</p> <ul data-v-22639c80="" class="menu-list"><li data-v-22639c80="" class=""><a data-v-22639c80="" href="/settings/profile">Profile</a></li> <li data-v-22639c80="" class=""><a data-v-22639c80="" href="/settings/notifications">Notifications</a></li> <li data-v-22639c80="" class=""><a data-v-22639c80="" href="/settings/api">Public API Access</a></li> <li data-v-22639c80="" class="router-link-exact-active router-link-active"><a data-v-22639c80="" href="/settings/billing" aria-current="page">Billing Management</a></li></ul> <p data-v-22639c80="" class="menu-label">Team &amp; Users</p> <ul data-v-22639c80="" class="menu-list"><li data-v-22639c80="" class="router-link-exact-active router-link-active"><a data-v-22639c80="" href="/settings/billing" aria-current="page">Team Management</a></li></ul> <p data-v-22639c80="" class="menu-label">Integrations</p> <ul data-v-22639c80="" class="menu-list"><li data-v-22639c80="" class=""><a data-v-22639c80="" href="/settings/integrations/slack">Slack</a></li></ul> <ul data-v-22639c80="" class="menu-list"><li data-v-22639c80="" class="router-link-exact-active router-link-active"><a data-v-22639c80="" href="/settings/billing" aria-current="page">SMS</a></li></ul> <ul data-v-22639c80="" class="menu-list"><li data-v-22639c80="" class=""><a data-v-22639c80="" href="/settings/integrations/webhook">Webhooks</a></li></ul> <ul data-v-22639c80="" class="menu-list"><li data-v-22639c80="" class=""><a data-v-22639c80="" href="/settings/integrations/pagerduty">PagerDuty</a></li></ul></aside></div></div> <div data-v-22639c80="" class="column is-9">
+                            <div data-v-22639c80="" class="box">
+                                <div data-v-22639c80="">
+                                    <!----> <div class="mt-5 mb-5" style="display: none;">
+                                        <div class="px-4 py-5 sm:p-6 text-gray-900 bg-green-200 border-green-600 rounded-md">
+                                            <div class="sm:flex sm:items-start sm:justify-between">
+                                                <div>
+                                                    <div class="mt-2 leading-5 text-lg font-bold text-green-900">
+                                                        <p>
+                                                            You're currently trialing Cronhub. It will expire on March 27, 2023 2:30 AM.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <div class="bg-white border border-red-300 sm:rounded-lg mt-5 mb-5" style="display: none;">
+                                        <div class="px-4 py-5 sm:p-6 text-red-900 bg-red-200">
+                                            <div class="sm:flex sm:items-start sm:justify-between">
+                                                <div>
+                                                    <div class="mt-2 max-w-xl leading-5 font-bold text-red-900">
+                                                        <p>
+                                                            You've canceled your  plan
+                                                            but you're in grace period now. To continue using Cronhub after
+                                                            it, you need to resume your subscription or change your
+                                                            subscription below.
+                                                        </p>
+                                                    </div>
+                                                </div> <div class="mt-5 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
+                                                    <span class="inline-flex rounded-md shadow-sm">
+                                                        <button type="button" class="inline-flex items-center px-6 py-4 border border-transparent text-md leading-5 font-bold rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                                                            Resume  subscription
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div>
+                                        <h1 class="text-lg font-semibold text-gray-700 mb-4">
+                                            Current Subscription Plan
+                                        </h1> <div class="bg-gray-50 sm:rounded-lg shadow-sm border border-gray-200">
+                                            <div>
+                                                <div class="flex justify-between">
+                                                    <h2 class="px-6 pt-4 text-xl font-semibold text-gray-700">
+                                                        @if (ViewData["paymentInfo"] == null)
+                                                        {
+                                                            <div>You're on Free Plan</div>
+                                                        } else
+                                                        {
+                                                            <span class="text-sm font-normal text-gray-500">
+                                                                @ViewData["paymentInfo"]
+                                                            </span>
+                                                        }
+                                                    </h2>
+                                                </div> <div class="px-6 pb-4">
+                                                    <div class="mt-2 text-md font-semibold text-gray-700"><span></span></div> <div class="mt-3 space-y-2">
+                                                        <div class="flex items-center">
+                                                            <svg viewBox="0 0 20 20" fill="currentColor" class="text-green-400 opacity-75 w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> <div class="ml-2 text-sm text-gray-600">
+                                                                @ViewData["numberOfSchedulers"]
+                                                            </div>
+                                                        </div> <div class="flex items-center">
+                                                            <svg viewBox="0 0 20 20" fill="currentColor" class="text-green-400 opacity-75 w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> <div class="ml-2 text-sm text-gray-600">
+                                                                1 Team Members
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="px-6 pb-4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-lg font-semibold text-gray-700 mb-4">
+                                            Choose Subscription Plan
+                                        </h1> 
+                                        <div class="d-flex bg-gray-50 sm:rounded-lg shadow-sm border border-gray-200">
+                                            <div>
+                                                <form method="POST">
+                                                    <input hidden="hidden" value="1" name="month"/>
+                                                    <div>
+                                                        <div class="flex justify-between">
+                                                            <h2 class="px-6 pt-4 text-xl font-semibold text-gray-700">
+                                                                1 Month Plan
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="px-6 pb-4">
+                                                        <button class="inline-flex bg-indigo-100 items-center py-2 px-4 border border-transparent text-sm rounded-md font-semibold text-indigo-700 focus:outline-none transition ease-in-out duration-150 mt-4">
+                                                            Checkout
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div>
+                                                <form method="POST">
+                                                    <input hidden="hidden" value="3" name="month"/>
+                                                    <div>
+                                                        <div class="flex justify-between">
+                                                            <h2 class="px-6 pt-4 text-xl font-semibold text-gray-700">
+                                                                3 Month Plan
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="px-6 pb-4">
+                                                        <button class="inline-flex bg-indigo-100 items-center py-2 px-4 border border-transparent text-sm rounded-md font-semibold text-indigo-700 focus:outline-none transition ease-in-out duration-150 mt-4">
+                                                            Checkout
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div>
+                                                <form method="POST">
+                                                    <input hidden="hidden" value="6" name="month"/>
+                                                    <div>
+                                                        <div class="flex justify-between">
+                                                            <h2 class="px-6 pt-4 text-xl font-semibold text-gray-700">
+                                                                6 Month Plan
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="px-6 pb-4">
+                                                        <button type="submit" class="inline-flex bg-indigo-100 items-center py-2 px-4 border border-transparent text-sm rounded-md font-semibold text-indigo-700 focus:outline-none transition ease-in-out duration-150 mt-4">
+                                                            Checkout
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
