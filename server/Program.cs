@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Quartz;
 using server.Config;
 using server.Middleware;
+using Stripe;
 using System.Text;
 
 
@@ -73,6 +74,7 @@ builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IRepository<UserRole>, UserRoleRepository>();
 builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<ILogRepository, LogRepository>();
+builder.Services.AddScoped<IPaymentInfoRepository, PaymentInfoRepository>();
 
 
 var mapperConfig = new MapperConfiguration(mc =>
@@ -82,6 +84,8 @@ var mapperConfig = new MapperConfiguration(mc =>
 
 IMapper mapper = mapperConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
+
+StripeConfiguration.ApiKey = "sk_test_51KDm2BJWdKsH8AduH2n1X1V0wD4v1cNBvgXHPtEMqDNbo7LUvXWEsYTwOUeoiqkRDPAfz8lxTmF6Fb9HjJ8EkIHM00ZmeAIFBB";
 
 var app = builder.Build();
 

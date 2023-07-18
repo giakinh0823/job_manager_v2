@@ -38,4 +38,9 @@ app.MapRazorPages();
 
 app.UseSession();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
 app.Run();
