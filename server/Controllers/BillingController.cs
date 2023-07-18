@@ -37,9 +37,9 @@ namespace server.Controllers
                     NumberOfSchedulers = "Unlimited Schedulers",
                 });
             }
-            return BadRequest(new BaseResponse()
+            return BadRequest(new PaymentResponse()
             {
-                isSuccess = false,
+                IsSuccess = false,
                 Message = "Không tìm thấy thông tin thanh toán"
             });
         }
