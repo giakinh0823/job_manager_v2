@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using server.Dto.Payment;
 using server.Dto.Job;
+using client.Config.Security;
 
 namespace Client.Pages.Settings;
 
+[FptAuthorize]
 public class BillingModel : PageModel
 {
 
@@ -35,8 +37,11 @@ public class BillingModel : PageModel
         if (result != null)
         {
             PaymentResponse paymentResponse = result.Data;
-            ViewData["paymentInfo"] = paymentResponse.PaymentInfo;
-            ViewData["numberOfSchedulers"] = paymentResponse.NumberOfSchedulers;
+            if(paymentResponse != null)
+            {
+                ViewData["paymentInfo"] = paymentResponse.PaymentInfo;
+                ViewData["numberOfSchedulers"] = paymentResponse.NumberOfSchedulers;
+            }
         }
 
         return Page();
