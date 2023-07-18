@@ -27,14 +27,14 @@ namespace client.Controllers
         [HttpGet("success/{id}")]
         public async Task<IActionResult> BillingSuccess(int id)
         {
-            ApiResponse<PaymentResponse> apiResponse = await _apiHelper.GetAsync<PaymentResponse>($"{_serverConfig.Domain}/api/v1/payment/success/" + id, true);
+            var apiResponse = await _apiHelper.GetAsync<Object>($"{_serverConfig.Domain}/api/v1/payment/success/" + id, true);
             return Redirect("/settings/billing");
         }
 
         [HttpGet("cancel/{id}")]
         public async Task<IActionResult> BillingCancel(int id)
         {
-            ApiResponse<PaymentResponse> apiResponse = await _apiHelper.GetAsync<PaymentResponse>($"{_serverConfig.Domain}/api/v1/payment/cancel/" + id, true);
+            var apiResponse = await _apiHelper.GetAsync<Object>($"{_serverConfig.Domain}/api/v1/payment/cancel/" + id, true);
             return Redirect("/settings/billing");
         }
     }

@@ -1,5 +1,6 @@
 ﻿using BusinessObject;
 using DataAccess.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server.Constant;
@@ -13,7 +14,8 @@ using Stripe.Checkout;
 namespace server.Controllers
 {
     [ApiController]
-    [Route("api/v1/payment")]
+    [Route("/api/v1/payment")]
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = "USER")]
     public class BillingController : Controller
     {
         private readonly IPaymentInfoRepository _paymentInfoRepository;
@@ -44,7 +46,7 @@ namespace server.Controllers
             });
         }
 
-        [HttpGet("/sucess/{id}")]
+        [HttpGet("success/{id}")]
         public async Task<IActionResult> PaymentSucess(int? id)
         {
             if(id == null)
@@ -56,16 +58,20 @@ namespace server.Controllers
             {
                 throw new ApplicationException("Không tìm thấy thông tin thanh toán");
             }
-            paymentInfo.Status = PaymentStatusConstant.ACTIVE;
-            _paymentInfoRepository.Update(paymentInfo);
-            return Ok(new PaymentResponse()
+            if (paymentInfo.Status == PaymentStatusConstant.PENDING)
             {
-                Status = getStatus(PaymentStatusConstant.ACTIVE),
-                Message = "Thanh toán thành công"
-            });
+                paymentInfo.Status = PaymentStatusConstant.ACTIVE;
+                _paymentInfoRepository.Update(paymentInfo);
+                return Ok(new PaymentResponse()
+                {
+                    Status = getStatus(PaymentStatusConstant.ACTIVE),
+                    Message = "Thanh toán thành công"
+                });
+            }
+            throw new ApplicationException("Không tìm thấy thông tin thanh toán");
         }
 
-        [HttpGet("/cancel/{id}")]
+        [HttpGet("cancel/{id}")]
         public async Task<IActionResult> PaymentCancel(int? id)
         {
             if (id == null)
@@ -77,13 +83,17 @@ namespace server.Controllers
             {
                 throw new ApplicationException("Không tìm thấy thông tin thanh toán");
             }
-            paymentInfo.Status = PaymentStatusConstant.CANCEL;
-            _paymentInfoRepository.Update(paymentInfo);
-            return Ok(new PaymentResponse()
+            if(paymentInfo.Status == PaymentStatusConstant.PENDING)
             {
-                Status = getStatus(PaymentStatusConstant.CANCEL),
-                Message = "Thanh toán thất bại"
-            });
+                paymentInfo.Status = PaymentStatusConstant.CANCEL;
+                _paymentInfoRepository.Update(paymentInfo);
+                return Ok(new PaymentResponse()
+                {
+                    Status = getStatus(PaymentStatusConstant.CANCEL),
+                    Message = "Thanh toán thất bại"
+                });
+            }
+            throw new ApplicationException("Không tìm thấy thông tin thanh toán");
         }
 
         [HttpPost]

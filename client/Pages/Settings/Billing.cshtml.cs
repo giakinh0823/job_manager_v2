@@ -41,25 +41,30 @@ public class BillingModel : PageModel
         return Page();
     }
     
-    public async Task<RedirectResult> OnPost(int? month)
+    public async Task<IActionResult> OnPost(int? month)
     {
-        if (month == null) return new RedirectResult("/settings/billing");
+        if (month == null) return Page();
 
         PaymentRequest paymentRequest = new PaymentRequest()
         {
             Month = (int)month
         };
 
-        ApiResponse<PaymentResponse> result = await _apiHelper.PostAsync<PaymentResponse>($"{_serverConfig.Domain}/api/v1/payment", paymentRequest, true);
+        var result = await _apiHelper.PostAsync<Object>($"{_serverConfig.Domain}/api/v1/payment", paymentRequest, true);
         if(result != null)
         {
-            PaymentResponse paymentResponse = result.Data;
-            if(paymentResponse != null)
+            Object obj = result.Data;
+            if(obj != null && obj is PaymentResponse)
             {
+                PaymentResponse? paymentResponse = obj as PaymentResponse;
                 return new RedirectResult(paymentResponse.Url);
-            }
+            } 
+        } else
+        {
+            string? errorMessage = result?.ErrorMessage;
+            ViewData["Error"] = errorMessage;
         }
 
-        return new RedirectResult("/settings/billing");
+        return Page();
     }
 }

@@ -37,7 +37,12 @@ namespace Client.Pages.Scheduler
                 return Page();
             }
 
-            ApiResponse<Job> result = await _apiHelper.PostAsync<Job>($"{_serverConfig.Domain}/api/v1/jobs", JobCreateRequest, true);
+            ApiResponse<Object> result = await _apiHelper.PostAsync<Object>($"{_serverConfig.Domain}/api/v1/jobs", JobCreateRequest, true);
+            if (result != null || result.IsSuccess)
+            {
+                string? errorMessage = result?.ErrorMessage;
+                TempData["Error"] = errorMessage;
+            }
 
             return new RedirectResult("/Scheduler");
         }

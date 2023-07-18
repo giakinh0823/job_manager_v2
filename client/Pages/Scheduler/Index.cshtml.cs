@@ -28,6 +28,11 @@ namespace Client.Pages.Scheduler
         
         public async Task<IActionResult> OnGet()
         {
+            if (TempData["Error"] is string errorMsg)
+            {
+                ViewData["Error"] = errorMsg;
+            }
+
             ApiResponse<List<Job>> result = await _apiHelper.GetAsync<List<Job>>($"{_serverConfig.Domain}/api/v1/jobs", true);
             if (result.IsSuccess)
             {

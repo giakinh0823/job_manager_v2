@@ -22,15 +22,17 @@ namespace server.Controllers
 
         private readonly IJobRepository _jobRepository;
         private readonly ILogRepository _logRepository;
+        private readonly IPaymentInfoRepository _paymentRepository;
         private readonly IMapper _mapper;
         private readonly ISchedulerFactory _schedulerFactory;
 
-        public JobController(IJobRepository jobRepository, IMapper mapper, ISchedulerFactory schedulerFactory, ILogRepository logRepository)
+        public JobController(IJobRepository jobRepository, IMapper mapper, ISchedulerFactory schedulerFactory, ILogRepository logRepository, IPaymentInfoRepository paymentRepository)
         {
             this._jobRepository = jobRepository;
             this._mapper = mapper;
             this._schedulerFactory = schedulerFactory;
             this._logRepository = logRepository;
+            this._paymentRepository = paymentRepository;
         }
 
 
@@ -61,6 +63,19 @@ namespace server.Controllers
             }
 
             AccessTokenPayload payload = CommonUtil.GetPayload(HttpContext.Request);
+
+            List<Job> jobs = _jobRepository.FindByUserId(payload.UserId);
+
+            List<PaymentInfo>? paymentInfos = _paymentRepository.FindByUserId(payload.UserId);
+
+
+            if (jobs.Count >= 1 && (paymentInfos == null || paymentInfos.Count <= 0 
+                || paymentInfos.Any(paymentInfo => !PaymentStatusConstant.ACTIVE.Equals(paymentInfo?.Status))
+                || paymentInfos.Any(paymentInfo => PaymentStatusConstant.ACTIVE.Equals(paymentInfo?.Status) && paymentInfo.EndDate <= DateTime.Now)))
+            {
+                throw new ApplicationException("Không thể tạo job! Bạn vui lòng nâng cấp tài khoản.");
+            }
+
             Job job = _mapper.Map<Job>(request);
             job.UserId = payload.UserId;
             job.CreatedAt = DateTime.Now;
