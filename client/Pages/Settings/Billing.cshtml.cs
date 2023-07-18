@@ -22,13 +22,7 @@ public class BillingModel : PageModel
     }
 
     public async Task<IActionResult> OnGet()
-    {
-        var email = HttpContext.Session.GetString("email");
-        if (email == null)
-        {
-            Response.Redirect("/auth/login");
-        }
-        
+    { 
         ViewData["paymentInfo"] = "You're on Free Plan";
         ViewData["numberOfSchedulers"] = "1 Scheduler";
 
