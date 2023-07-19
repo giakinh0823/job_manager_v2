@@ -22,7 +22,12 @@ public class BillingModel : PageModel
     }
 
     public async Task<IActionResult> OnGet()
-    { 
+    {
+        if (TempData["Error"] is string errorMessage)
+        {
+            ViewData["Error"] = errorMessage;
+        }
+
         ViewData["paymentInfo"] = "You're on Free Plan";
         ViewData["numberOfSchedulers"] = "1 Scheduler";
 
@@ -50,19 +55,37 @@ public class BillingModel : PageModel
             Month = (int)month
         };
 
-        var result = await _apiHelper.PostAsync<Object>($"{_serverConfig.Domain}/api/v1/payment", paymentRequest, true);
+        var result = await _apiHelper.PostAsync<PaymentResponse>($"{_serverConfig.Domain}/api/v1/payment", paymentRequest, true);
         if(result != null)
         {
-            Object obj = result.Data;
-            if(obj != null && obj is PaymentResponse)
+            if(result.IsSuccess && result.Data != null && result.Data.Url != null)
             {
-                PaymentResponse? paymentResponse = obj as PaymentResponse;
-                return new RedirectResult(paymentResponse.Url);
-            } 
+                PaymentResponse? paymentResponse = result.Data;
+                return new RedirectResult(paymentResponse?.Url);
+            } else
+            {
+                string? errorMessage = result?.ErrorMessage;
+                TempData["Error"] = errorMessage;
+            }
         } else
         {
             string? errorMessage = result?.ErrorMessage;
             ViewData["Error"] = errorMessage;
+        }
+
+        ViewData["paymentInfo"] = "You're on Free Plan";
+        ViewData["numberOfSchedulers"] = "1 Scheduler";
+
+        ApiResponse<PaymentResponse> resultPayment = await _apiHelper.GetAsync<PaymentResponse>($"{_serverConfig.Domain}/api/v1/payment", true);
+
+        if (resultPayment != null)
+        {
+            PaymentResponse paymentResponse = resultPayment.Data;
+            if (paymentResponse != null)
+            {
+                ViewData["paymentInfo"] = paymentResponse.PaymentInfo;
+                ViewData["numberOfSchedulers"] = paymentResponse.NumberOfSchedulers;
+            }
         }
 
         return Page();

@@ -128,6 +128,7 @@ namespace server.Controllers
                 {
                     return Ok(new PaymentResponse()
                     {
+                        IsSuccess = false,
                         Status = getStatus(PaymentStatusConstant.ACTIVE),
                         Message = "Thanh toán thành công"
                     });
@@ -172,6 +173,7 @@ namespace server.Controllers
 
             return Ok(new PaymentResponse
             {
+                IsSuccess = true,
                 Url = session.Url,
             });
         }
