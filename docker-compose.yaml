@@ -13,31 +13,32 @@ services:
     networks:
       - app_network
 
-  server:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
-    ports:
-      - "5000:5000"
-    depends_on:
-      - db
-    environment:
-      - DB_SERVER=db
-      - DB_PORT=1433
-      - DB_NAME=job_manager
-      - DB_USER=sa
-      - DB_PASSWORD=12345678
-    networks:
-      - app_network
+  # server:
+  #   build:
+  #     context: ./server
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5000:5000"
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - DB_SERVER=db
+  #     - DB_PORT=1433
+  #     - DB_NAME=job_manager
+  #     - DB_USER=sa
+  #     - DB_PASSWORD=12345678
+  #   networks:
+  #     - app_network
 
   client:
     build:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - "5100:5100"
-    depends_on:
-      - server
+      - "5100:443"
+      - "5200:80"
+    # depends_on:
+    #   - server
     networks:
       - app_network
 
