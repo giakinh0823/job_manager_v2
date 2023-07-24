@@ -34,6 +34,7 @@ namespace server
         {
         }
 
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var conf = new ConfigurationBuilder()

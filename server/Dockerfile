@@ -1,22 +1,27 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 443
-EXPOSE 80
-
+# Sử dụng image có .NET SDK để build ứng dụng API và migration database
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY ["server.csproj", "server/"]
-RUN dotnet restore "server/server.csproj"
-COPY . .
-WORKDIR "/src/server"
-RUN dotnet build "server.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "server.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
-FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+
+# Copy mã nguồn và restore các dependency
+COPY *.csproj .
+RUN dotnet restore
+
+# Copy toàn bộ mã nguồn và build ứng dụng
+COPY . .
+RUN dotnet publish -c Release -o out
+
+# Thêm công cụ Entity Framework Core CLI vào image
+RUN dotnet tool install --global dotnet-ef --version 6.0.19
+
+# Thêm đường dẫn của công cụ EF vào biến PATH
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+# RUN dotnet ef database update
+
+# Sử dụng image có .NET runtime để chạy ứng dụng
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+COPY --from=build /app/out .
+
+# Chạy ứng dụng API
 ENTRYPOINT ["dotnet", "server.dll"]

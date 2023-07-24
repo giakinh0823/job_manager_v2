@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Quartz;
+using server;
 using server.Config;
 using server.Entity;
 using server.Middleware;
@@ -68,6 +70,10 @@ builder.Services.AddQuartzHostedService(options =>
     // when shutting down we want jobs to complete gracefully
     options.WaitForJobsToComplete = true;
 });
+
+builder.Services.AddDbContext<JobManagerContext>(options => options.UseSqlServer
+    (builder.Configuration.GetConnectionString("SqlConnection")
+     ?? throw new InvalidOperationException("Connection string 'SqlConnection' not found.")));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();

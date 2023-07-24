@@ -1,47 +1,45 @@
-version: "3.9"
-
+version: '3.9'
 services:
-  # Service for SQL Server
-  db:
-    image: mcr.microsoft.com/mssql/server
-    container_name: sql_server
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=12345678
-    ports:
-      - "1433:1433"
-    networks:
-      - app_network
-
-  # server:
-  #   build:
-  #     context: ./server
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "5000:5000"
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - DB_SERVER=db
-  #     - DB_PORT=1433
-  #     - DB_NAME=job_manager
-  #     - DB_USER=sa
-  #     - DB_PASSWORD=12345678
-  #   networks:
-  #     - app_network
-
   client:
+    container_name: client
     build:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - "5100:443"
-      - "5200:80"
-    # depends_on:
-    #   - server
+      - "8080:80"  # Map cổng 80 trong container thành cổng 8080 trên máy host
+    depends_on:
+      - server
     networks:
-      - app_network
+      - job_manager_network
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"  # Map cổng 80 trong container thành cổng 5000 trên máy host
+    depends_on:
+      - sqlserver
+    networks:
+      - job_manager_network
+
+  sqlserver:
+    container_name: sqlserver
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: "FPTUniversity@123"  # Thay đổi mật khẩu tùy ý
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1443:1433"  # Map cổng 1433 trong container thành cổng 1433 trên máy host
+    networks:
+      - job_manager_network
+    volumes:  # Add a named volume for the database data
+      - sqlserver_data:/var/opt/mssql
 
 networks:
-  app_network:
+  job_manager_network:
     driver: bridge
+
+volumes:  # Define the named volume
+  sqlserver_data:

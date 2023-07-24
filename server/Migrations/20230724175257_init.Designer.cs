@@ -12,7 +12,7 @@ using server;
 namespace server.Migrations
 {
     [DbContext(typeof(JobManagerContext))]
-    [Migration("20230724172226_init")]
+    [Migration("20230724175257_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
