@@ -1,12 +1,9 @@
-﻿using Client.Helper;
+﻿using BusinessObject;
 using client.Pages.Config;
+using Client.Helper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using prn_job_manager.Models;
 using server.Dto.Auth;
-using BusinessObject;
-using client.Config;
 
 namespace Client.Pages.Auth
 {

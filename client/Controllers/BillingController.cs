@@ -1,12 +1,7 @@
-﻿using BusinessObject;
-using client.Pages.Config;
+﻿using client.Pages.Config;
 using Client.Helper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using server.Constant;
-using server.Dto.Auth;
-using server.Dto.Payment;
 
 namespace client.Controllers
 {

@@ -1,19 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Client.Helper;
-using client.Pages.Config;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using prn_job_manager.Models;
-using Quartz;
-using server.Dto.Job;
 using BusinessObject;
 using client.Config.Security;
-using client.Config;
+using client.Pages.Config;
+using Client.Helper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using server.Dto.Job;
 
 namespace Client.Pages.Scheduler
 {

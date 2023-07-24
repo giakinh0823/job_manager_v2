@@ -1,8 +1,8 @@
-﻿using BusinessObject;
-using DataAccess.Repository;
+﻿using DataAccess.Repository;
 using Microsoft.AspNetCore.Mvc;
 using server.Constant;
 using server.Dto.Auth;
+using server.Entity;
 using server.Utils;
 
 namespace server.Controllers

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using BusinessObject;
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Quartz;
 using server.Config;
+using server.Entity;
 using server.Middleware;
 using Stripe;
 using System.Text;

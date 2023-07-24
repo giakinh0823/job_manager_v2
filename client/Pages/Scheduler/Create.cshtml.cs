@@ -1,11 +1,9 @@
-using Client.Helper;
+using client.Config.Security;
 using client.Pages.Config;
+using Client.Helper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Quartz;
 using server.Dto.Job;
-using BusinessObject;
-using client.Config.Security;
 
 namespace Client.Pages.Scheduler
 {

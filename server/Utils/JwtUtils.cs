@@ -1,7 +1,7 @@
-﻿using BusinessObject;
-using DataAccess.Repository;
+﻿using DataAccess.Repository;
 using Microsoft.IdentityModel.Tokens;
 using server.Dto.Auth;
+using server.Entity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

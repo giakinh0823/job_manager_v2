@@ -1,11 +1,11 @@
-﻿using BusinessObject;
-using DataAccess.Repository;
+﻿using DataAccess.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server.Constant;
 using server.Dto.Base;
 using server.Dto.Payment;
+using server.Entity;
 using server.Models;
 using server.Utils;
 using Stripe.Checkout;

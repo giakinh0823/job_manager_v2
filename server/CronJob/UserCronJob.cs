@@ -8,7 +8,7 @@ using server.Models;
 using Quartz;
 using DataAccess;
 using DataAccess.Repository;
-using BusinessObject;
+using server.Entity;
 
 namespace server.CronJob;
 

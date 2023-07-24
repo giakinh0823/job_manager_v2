@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  # Service for SQL Server
+  db:
+    image: mcr.microsoft.com/mssql/server
+    container_name: sql_server
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=12345678
+    ports:
+      - "1433:1433"
+    networks:
+      - app_network
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - DB_SERVER=db
+      - DB_PORT=1433
+      - DB_NAME=job_manager
+      - DB_USER=sa
+      - DB_PASSWORD=12345678
+    networks:
+      - app_network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "5100:5100"
+    depends_on:
+      - server
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

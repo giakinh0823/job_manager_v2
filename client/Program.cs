@@ -1,7 +1,6 @@
 using client.Common;
 using client.Pages.Config;
 using Client.Helper;
-using DataAccess.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

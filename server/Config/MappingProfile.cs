@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using BusinessObject;
 using server.Dto.Job;
 using server.Dto.Log;
 using server.Dto.User;
+using server.Entity;
 
 namespace server.Config
 {

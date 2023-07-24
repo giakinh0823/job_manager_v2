@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BusinessObject;
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +8,7 @@ using server.Constant;
 using server.CronJob;
 using server.Dto.Base;
 using server.Dto.Job;
+using server.Entity;
 using server.Models;
 using server.Utils;
 

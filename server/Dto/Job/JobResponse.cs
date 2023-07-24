@@ -1,7 +1,4 @@
-﻿using BusinessObject;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using server.Dto.Log;
+﻿using server.Dto.Log;
 
 namespace server.Dto.Job
 {

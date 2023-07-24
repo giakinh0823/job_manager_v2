@@ -1,8 +1,4 @@
-﻿using BusinessObject;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace server.Dto.User
+﻿namespace server.Dto.User
 {
     public class UserResponse
     {
