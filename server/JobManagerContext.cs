@@ -1,14 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using server.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace server.Repository
+namespace server
 {
     public class JobManagerContext : DbContext
     {
@@ -46,8 +39,8 @@ namespace server.Repository
             var conf = new ConfigurationBuilder()
                    .SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.json").Build();
-            // optionsBuilder.UseSqlServer(conf.GetConnectionString("SqlConnection"));
-            optionsBuilder.UseSqlServer("server=localhost;database=job_manager;user=sa;password=12345678;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer(conf.GetConnectionString("SqlConnection"));
+            //optionsBuilder.UseSqlServer("server=localhost;database=job_manager;user=sa;password=12345678;TrustServerCertificate=true");
         }
 
 

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using server.Entity;
-using server.Repository;
 
 namespace server.DAO
 {
