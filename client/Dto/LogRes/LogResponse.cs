@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace server.Dto.Log
+namespace client.Dto.LogRes
 {
     public class LogResponse
     {

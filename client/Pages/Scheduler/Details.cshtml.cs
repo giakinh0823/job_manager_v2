@@ -1,12 +1,10 @@
-using BusinessObject;
-using Client.Helper;
+using client.Config.Security;
+using client.Dto.Job;
+using client.Dto.LogRes;
 using client.Pages.Config;
+using Client.Helper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using server.Dto.Job;
-using server.Dto.Log;
-using client.Common;
-using client.Config.Security;
 
 namespace Client.Pages.Scheduler
 {

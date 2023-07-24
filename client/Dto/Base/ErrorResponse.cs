@@ -1,4 +1,4 @@
-﻿namespace server.Dto.Base
+﻿namespace client.Dto.Base
 {
     public class ErrorResponse
     {

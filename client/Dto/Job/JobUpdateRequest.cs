@@ -1,7 +1,7 @@
 ﻿using server.Validate;
 using System.ComponentModel.DataAnnotations;
 
-namespace server.Dto.Job
+namespace client.Dto.Job
 {
     public class JobUpdateRequest
     {

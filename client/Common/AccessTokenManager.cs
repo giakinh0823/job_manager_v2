@@ -1,7 +1,7 @@
-﻿using client.Pages.Config;
+﻿using client.Dto.Auth;
+using client.Pages.Config;
+using client.Utils;
 using Client.Helper;
-using server.Dto.Auth;
-using server.Utils;
 using System.Text;
 using System.Text.Json;
 

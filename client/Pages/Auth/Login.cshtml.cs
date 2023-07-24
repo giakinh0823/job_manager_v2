@@ -1,12 +1,12 @@
 ﻿using System.Security.Claims;
 using client.Config;
+using client.Dto.Auth;
 using client.Pages.Config;
 using Client.Helper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using server.Dto.Auth;
 
 namespace Client.Pages.Auth
 {

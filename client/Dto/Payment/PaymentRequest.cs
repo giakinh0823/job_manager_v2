@@ -1,4 +1,4 @@
-﻿namespace server.Dto.Payment
+﻿namespace client.Dto.Payment
 {
     public class PaymentRequest
     {

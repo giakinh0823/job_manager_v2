@@ -1,9 +1,6 @@
-﻿using BusinessObject;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using server.Dto.Log;
+﻿using client.Dto.LogRes;
 
-namespace server.Dto.Job
+namespace client.Dto.Job
 {
     public class JobResponse
     {

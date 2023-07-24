@@ -1,9 +1,9 @@
-﻿using BusinessObject;
+﻿using client.Dto.Auth;
+using client.Entity;
 using client.Pages.Config;
 using Client.Helper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using server.Dto.Auth;
 
 namespace Client.Pages.Auth
 {

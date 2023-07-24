@@ -1,9 +1,9 @@
 using client.Config.Security;
+using client.Dto.Job;
 using client.Pages.Config;
 using Client.Helper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using server.Dto.Job;
 
 namespace Client.Pages.Scheduler
 {

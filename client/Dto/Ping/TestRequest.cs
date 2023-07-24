@@ -1,4 +1,4 @@
-﻿namespace server.Dto.Ping
+﻿namespace client.Dto.Ping
 {
     public class TestRequest
     {

@@ -1,4 +1,4 @@
-﻿namespace server.Dto.Auth
+﻿namespace client.Dto.Auth
 {
     public class LoginRequest
     {

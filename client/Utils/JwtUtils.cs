@@ -3,11 +3,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace server.Utils
+namespace client.Utils
 {
     public class JwtUtils
     {
-    
+
         public static string GenerateToken(DateTime expirationTime, IEnumerable<Claim> claims)
         {
             var _config = getConfig();
@@ -55,7 +55,7 @@ namespace server.Utils
             }
         }
 
-        public static IEnumerable<Claim> GetClaims(bool includeRoles, int userId, string name, string email, ICollection<String>? roles)
+        public static IEnumerable<Claim> GetClaims(bool includeRoles, int userId, string name, string email, ICollection<string>? roles)
         {
             var claims = new List<Claim>
             {
@@ -66,7 +66,7 @@ namespace server.Utils
 
             if (includeRoles && roles != null)
             {
-                roles.ToList().FindAll(r => r !=null).ForEach(role =>
+                roles.ToList().FindAll(r => r != null).ForEach(role =>
                 {
                     claims.AddRange(new[]
                     {

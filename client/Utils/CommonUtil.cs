@@ -1,12 +1,13 @@
-﻿using server.Models;
+﻿using client.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace server.Utils
+namespace client.Utils
 {
     public class CommonUtil
     {
-        public static AccessTokenPayload GetPayload(HttpRequest request) {
+        public static AccessTokenPayload GetPayload(HttpRequest request)
+        {
             string? accessToken = GetTokenFromRequest(request);
             if (accessToken == null) return null;
 
@@ -17,7 +18,7 @@ namespace server.Utils
             ICollection<string> roles = jwtSecurityToken.Claims.Where(claim => claim.Type == ClaimTypes.Role).Select(claim => claim.Value).ToList();
 
             var payload = new AccessTokenPayload();
-            payload.UserId = id !=null ? int.Parse(id): null;
+            payload.UserId = id != null ? int.Parse(id) : null;
             payload.Name = name;
             payload.Email = email;
             payload.Roles = roles;

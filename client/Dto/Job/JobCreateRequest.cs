@@ -1,9 +1,7 @@
-﻿using BusinessObject;
-using server.Validate;
+﻿using server.Validate;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace server.Dto.Job
+namespace client.Dto.Job
 {
     public class JobCreateRequest
     {
