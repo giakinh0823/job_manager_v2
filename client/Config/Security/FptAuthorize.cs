@@ -5,9 +5,9 @@ using Client.Helper;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using client.Pages.Config;
 using server.Utils;
 using server.Dto.Auth;
+using client.Pages.Config;
 
 namespace client.Config.Security
 {

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using prn_job_manager.Models;
 using server.Dto.Auth;
 using BusinessObject;
+using client.Config;
 
 namespace Client.Pages.Auth
 {

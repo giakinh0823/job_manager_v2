@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using server.Dto.Payment;
 using server.Dto.Job;
 using client.Config.Security;
+using client.Config;
 
 namespace Client.Pages.Settings;
 

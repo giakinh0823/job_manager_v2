@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using client.Config;
 using client.Pages.Config;
 using Client.Helper;
 using Microsoft.AspNetCore.Authentication;

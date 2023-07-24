@@ -13,6 +13,7 @@ using Quartz;
 using server.Dto.Job;
 using BusinessObject;
 using client.Config.Security;
+using client.Config;
 
 namespace Client.Pages.Scheduler
 {
